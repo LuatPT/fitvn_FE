@@ -1,25 +1,78 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Footer from './common/Footer';
+import Body from './common/Body';
+import Header from './common/Header';
+import WrapperComponent from './common/WrapperComponent';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+       const menus: Object[] = [
+            {
+                id: 1,
+                name: "Home",
+                path: "/findFood",
+                component: 'food'
+            },
+             {
+                id: 2,
+                name: "Find meal",
+                path: "/findMeal",
+                component: 'food'
+            },
+            //  {
+            //     id: 3,
+            //     name: "Hire a PT",
+            //     path: "/hirePT",
+            //     component: 'excercise'
+            // },
+             {
+                id: 4,
+                name: "Excercise guide",
+                path: "/findExercise",
+                component: 'excercise'
+            }, 
+            {
+                id: 5,
+                name: "Caculator",
+                path: "/caculator",
+                component: 'caculator'
+            },
+            //  {
+            //     id: 6,
+            //     name: "About me",
+            //     path: "/aboutMe",
+            //     component: 'excercise'
+            // }
+        ];
+        return (
+        <Router>
+          <div className="App">
+          <Header />
+              <Switch>
+                
+                {
+                  menus.map((ele,key) =>
+                    {
+                      
+                      let typeComponent = ele.component;
+                      return(
+                        <Route key={key} path={ele.path}>
+                          {
+                            WrapperComponent(Body, typeComponent)
+                          }
+                        </Route>
+
+                      )
+                    })
+                }
+              </Switch>
+            <Footer />
+          </div>
+        </Router>
+    );
+  }
 }
 
 export default App;
