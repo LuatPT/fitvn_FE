@@ -1,22 +1,24 @@
 import axios from "axios";
-import * as constants from "../constants";
+import * as constants from "../../constants";
 
-export const getFoodListAction = (obj) => {
+export const getFoodListAction = () => {
     return (dis) => {
         axios({
                 method: 'get',
-                url: constants.api+'/food/' + obj.foodId,
+                url: constants.api+'/foods',
                 header: {
-                    'access-token': localStorage.getItem('token'),
+                    // 'access-token': localStorage.getItem('token'),
                     'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*', 
                     Accept: 'application/json'
                 }
             })
             .then(res => {
-                dis(getFoodList(res.data));
+                // console.log(res.data.data);
+                dis(getFoodList(res.data.data));
             })
             .catch(err => {
-                console.log(error);
+                console.log(err);
             })
     }
 }

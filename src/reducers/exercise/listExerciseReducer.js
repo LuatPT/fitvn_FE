@@ -1,5 +1,4 @@
-var init = {
-  list: [
+var init = [
             {
                 id:1,
                 name: "Bench Press",
@@ -45,14 +44,13 @@ var init = {
                 type: "Shoulder",
                 content: "Good exercise for shoulder"
             }
-        ]
-};
+        ];
 const listExerciseReducer = (state = init, action) => {
   switch (action.type) {
     case 'GET_EXCERCISE':
       return action.productObj;
     default:
-      return state.list;
+      return state;
   }
 };
 export default listExerciseReducer;

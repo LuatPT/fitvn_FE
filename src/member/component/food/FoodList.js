@@ -10,7 +10,15 @@ class FoodList extends React.Component{
             keySearch : ""
         }
     }
+    // useEffect(() => {
+    //     const {GetFood} = this.props;
+    //     GetFood.getFoodListAction();
+    // });
 
+    componentDidMount = () => {
+        const {GetFood} = this.props;
+        GetFood.getFoodListAction();
+    }
     searchFood = (value) => {
         this.setState({
             keySearch: value
@@ -18,7 +26,8 @@ class FoodList extends React.Component{
     }
     render(){
         var {listFood} = this.props;
-        const filterListFood = listFood.filter(ele => ele.name.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
+        console.log(listFood);
+        const filterListFood = listFood.filter(ele => ele.foodName.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
         return(
             <div>
                 <SearchFood  searchFood={this.searchFood}/>

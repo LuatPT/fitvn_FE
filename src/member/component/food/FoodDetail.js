@@ -6,10 +6,10 @@ class FoodDetail extends React.PureComponent{
         var ele : Object = this.props;
         return(
             <div className="col-md-3 foodDetail">
-                <img src={ele.image} className="center" width="100%" height="55%" alt={ele.name}/>
+                <img src={ele.foodImg} className="center" width="100%" height="55%" alt={ele.foodName}/>
                 {/* <p>{ele.id}</p> */}
-                <p>Name:  {ele.name}</p>
-                <p>Energy: {ele.calo} calo/100g </p>
+                <p>Name:  {ele.foodName}</p>
+                <p>Energy: {ele.foodCalo} calo/100g </p>
                 {/* <p>{ele.typeMacro}</p> */}
             </div>
             )
