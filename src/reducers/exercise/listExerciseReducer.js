@@ -32,7 +32,7 @@ var init = [
                 image: "https://weighttraining.guide/wp-content/uploads/2016/05/barbell-deadlift-resized.png",
                 set: 4,
                 rep: 8,
-                type: "Hip",
+                type: "Hip" ,
                 content: "It's good for hip"
             },
              {
