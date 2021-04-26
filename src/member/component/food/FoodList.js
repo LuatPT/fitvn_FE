@@ -7,7 +7,7 @@ class FoodList extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            keySearch : ""
+            keySearch : "" 
         }
     }
     // useEffect(() => {

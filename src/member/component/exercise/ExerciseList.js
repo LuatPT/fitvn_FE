@@ -11,6 +11,10 @@ class ExerciseList extends React.Component{
         }
     }
 
+    componentDidMount = () => {
+        const {GetExercise} = this.props;
+        GetExercise.getExerciseListAction();
+    }
     searchExercise = (value) => {
         this.setState({
             keySearch: value

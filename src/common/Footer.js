@@ -1,12 +1,12 @@
 import React from 'react'
-import LoginForm from '../member/component/login/LoginForm'
+import LoginContainer from '../member/container/login/LoginContainer'
 
 class Footer extends React.PureComponent{
 
     render(){
         return(
             <div>
-            <LoginForm />
+            <LoginContainer />
             <p>Pham Tien Luat</p>
             </div>
         )

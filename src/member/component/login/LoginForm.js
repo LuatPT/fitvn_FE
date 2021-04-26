@@ -1,68 +1,44 @@
-import React from 'react'
+import React from 'react';
+import {useState} from "react";
+import "../../../css/loginStyle.css";
 
-class LoginForm extends React.PureComponent{
-
-    componentDidMount = () =>{
-        document.querySelector('.img__btn').addEventListener('click', function() {
-        document.querySelector('.cont').classList.toggle('s--signup');
-        });
+function LoginForm (props){
+    const[userName, setUserName] = useState('');
+    const[password, setPassword] = useState('');
+    function changeUserName(eve){
+        setUserName(eve.target.value);
     }
-    render(){
-       
-        return(
-            <div >
-               <div className="cont">
-                    <div className="form sign-in">
-                        <h2>Welcome back,</h2>
-                        <label>
-                        <span>User</span>
-                        <input type="text"/>
-                        </label>
-                        <label>
-                        <span>Password</span>
-                        <input type="password" />
-                        </label>
-                        <p className="forgot-pass">Forgot password?</p>
-                        <button type="button" className="submit">Sign In</button>
-                        <button type="button" className="fb-btn">Connect with <span>facebook</span></button>
-                    </div>
-                    <div className="sub-cont">
-                        <div className="img">
-                        <div className="img__text m--up">
-                            <h2>New here?</h2>
-                            <p>Sign up and discover great amount of new opportunities!</p>
+    function changePassword(eve){
+        setPassword(eve.target.value);
+    }
+    function submiForm(eve){
+        eve.preventDefault()
+        const {loginAction} = props ;
+        let obj = {
+            username: userName,
+            password: password
+        }
+        //Login
+        loginAction(obj);
+    }
+    return(
+            <div className="full-screen-container">
+                <div className="login-container">
+                    <h3 className="login-title">{props.message}</h3>
+                    <form>
+                        <div className="input-group">
+                            <label>User name</label>
+                            <input type="text" onChange={changeUserName}/>
                         </div>
-                        <div className="img__text m--in">
-                            <h2>One of us?</h2>
-                            <p>If you already has an account, just sign in. We've missed you!</p>
+                        <div className="input-group">
+                            <label>Password</label>
+                            <input type="password" onChange={changePassword}/>
                         </div>
-                        <div className="img__btn">
-                            <span className="m--up">Sign Up</span>
-                            <span className="m--in">Sign In</span>
-                        </div>
-                        </div>
-                        <div className="form sign-up">
-                        <h2>Time to feel like home,</h2>
-                        <label>
-                            <span>Name</span>
-                            <input type="text" />
-                        </label>
-                        <label>
-                            <span>User</span>
-                            <input type="text" />
-                        </label>
-                        <label>
-                            <span>Password</span>
-                            <input type="password" />
-                        </label>
-                        <button type="button" className="submit">Sign Up</button>
-                        <button type="button" className="fb-btn">Join with <span>facebook</span></button>
-                        </div>
-                    </div>
+                        <button type="submit" className="login-button" onClick={submiForm}>Sign In</button>
+                    </form>
                 </div>
             </div>
         )
-    }
 }
 
 export default LoginForm;

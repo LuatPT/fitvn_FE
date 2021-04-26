@@ -2,19 +2,20 @@ import axios from "axios";
 import * as constants from "../../constants";
 
 export const getExerciseListAction = () => {
+    console.log(localStorage.getItem('token'));
     return (dis) => {
         axios({
                 method: 'get',
                 url: constants.api+'/exercises',
                 header: {
-                    // 'access-token': localStorage.getItem('token'),
+                    'Authorization': localStorage.getItem('token'),
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*', 
                     Accept: 'application/json'
                 }
             })
             .then(res => {
-                // console.log(res.data.data);
+                console.log(res.data.data);
                 dis(getExerciseList(res.data.data));
             })
             .catch(err => {

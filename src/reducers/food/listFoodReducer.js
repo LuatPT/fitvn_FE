@@ -51,7 +51,7 @@ const listFoodReducer = (state = init, action) => {
       if (action.listFood === []) {
         return state
       }else{
-      return action.listFood;
+        return action.listFood;
       }
     default:
       return state;

@@ -47,8 +47,12 @@ var init = [
         ];
 const listExerciseReducer = (state = init, action) => {
   switch (action.type) {
-    case 'GET_EXCERCISE':
-      return action.productObj;
+    case 'GET_EXERCISE':
+      if (action.listExercise === []) {
+        return state;
+      }else{
+        return action.listExercise;
+      }
     default:
       return state;
   }
