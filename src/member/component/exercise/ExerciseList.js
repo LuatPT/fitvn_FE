@@ -22,7 +22,7 @@ class ExerciseList extends React.Component{
     }
     render(){
         var {listExercise} = this.props;
-        const filterListExercise = listExercise.filter(ele => ele.name.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
+        const filterListExercise = listExercise.filter(ele => ele.exerciseName.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
         return(
             <div>
                 <SearchExercise  searchExercise={this.searchExercise}/>

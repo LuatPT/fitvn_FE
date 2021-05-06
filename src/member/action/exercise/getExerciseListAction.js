@@ -2,16 +2,20 @@ import axios from "axios";
 import * as constants from "../../constants";
 
 export const getExerciseListAction = () => {
-    console.log(localStorage.getItem('token'));
-    return (dis) => {
+    return (dis) => { 
+            // axios.get(
+            //     constants.api+'/exercises',  
+            //     {
+            //         headers: {
+            //             'Authorization': localStorage.getItem('token')
+            //     },
+            // })
         axios({
                 method: 'get',
                 url: constants.api+'/exercises',
-                header: {
-                    'Authorization': localStorage.getItem('token'),
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*', 
-                    Accept: 'application/json'
+                headers: {
+                        'Authorization': localStorage.getItem('token')
+                
                 }
             })
             .then(res => {

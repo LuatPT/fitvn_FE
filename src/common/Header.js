@@ -6,8 +6,8 @@ class Header extends React.PureComponent{
         var menus: Object[] = [
             {
                 id: 1,
-                name: "Home",
-                path: "/findFood",
+                name: "Login",
+                path: "/login",
             },
              {
                 id: 2,

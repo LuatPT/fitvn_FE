@@ -9,8 +9,9 @@ const loginAction = (obj) => {
             data: obj
         })
         .then(res=>{
-            let fullToken = res.data.tokenType + " " + res.data.accessToken;
+            let fullToken = res.data.tokenType+" "+res.data.accessToken;
             localStorage.setItem("token", fullToken);
+            console.log(fullToken);
             dispatch(login("Login sucess!!!"));
         })
         .catch(

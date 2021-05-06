@@ -11,9 +11,9 @@ class App extends React.Component {
        const menus: Object[] = [
             {
                 id: 1,
-                name: "Home",
-                path: "/findFood",
-                component: 'food'
+                name: "Login",
+                path: "/login",
+                component: 'login'
             },
              {
                 id: 2,

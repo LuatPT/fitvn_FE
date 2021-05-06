@@ -22,7 +22,7 @@ function LoginForm (props){
         loginAction(obj);
     }
     return(
-            <div className="full-screen-container">
+            <div className="full-screen-container" id="login">
                 <div className="login-container">
                     <h3 className="login-title">{props.message}</h3>
                     <form>
