@@ -10,6 +10,7 @@ export const getExerciseListAction = () => {
             //             'Authorization': localStorage.getItem('token')
             //     },
             // })
+        // Use for action
         axios({
                 method: 'get',
                 url: constants.api+'/exercises',
