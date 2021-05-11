@@ -8,15 +8,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
   render(){
-       const menus: Object[] = [
-            {
-                id: 1,
-                name: "Login",
-                path: "/login",
-                component: 'login'
-            },
+       const menus= [
              {
-                id: 2,
+                id: 1,
                 name: "Find meal",
                 path: "/findMeal",
                 component: 'food'
@@ -28,34 +22,44 @@ class App extends React.Component {
             //     component: 'excercise'
             // },
              {
-                id: 4,
+                id: 2,
                 name: "Excercise guide",
                 path: "/findExercise",
                 component: 'excercise'
-            }, 
+            },
             {
-                id: 5,
+                id: 3,
                 name: "Caculator",
                 path: "/caculator",
                 component: 'caculator'
             },
-            //  {
-            //     id: 6,
-            //     name: "About me",
-            //     path: "/aboutMe",
-            //     component: 'excercise'
-            // }
+            {
+              id: 4,
+              name: "Login",
+              path: "/login",
+              component: 'login'
+            },
+            {
+              id: 5,
+              name: "Meal Plan",
+              path: "/mealPlan",
+              component: 'mealPlan'
+            },
+            {
+              id: 6,
+              name: "Workout Plan",
+              path: "/exercisePlan",
+              component: 'exercisePlan'
+            }
         ];
         return (
         <Router>
           <div className="App">
           <Header />
               <Switch>
-                
                 {
                   menus.map((ele,key) =>
                     {
-                      
                       let typeComponent = ele.component;
                       return(
                         <Route key={key} path={ele.path}>
