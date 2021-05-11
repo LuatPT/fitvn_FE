@@ -6,12 +6,15 @@ const loginAction = (obj) => {
         axios({
             method: "post",
             url: constants.api + "/login",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            },
             data: obj
         })
         .then(res=>{
             let fullToken = res.data.tokenType+" "+res.data.accessToken;
             localStorage.setItem("token", fullToken);
-            console.log(fullToken);
+            localStorage.setItem("isLogin", true);
             dispatch(login("Login sucess!!!"));
         })
         .catch(

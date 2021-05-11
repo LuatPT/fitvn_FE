@@ -3,6 +3,8 @@ import LoginContainer from '../member/container/login/LoginContainer';
 import FoodListContainer from '../member/container/food/FoodListContainer';
 import ExerciseListContainer from '../member/container/exercise/ExerciseListContainer'
 import CaculatorContainer from '../member/container/caculator/CaculatorContainer'
+import MealPlanContainer from '../member/container/mealPlan/MealPlanContainer';
+import ExercisePlanContainer from '../member/container/exercisePlan/ExercisePlanContainer';
 
 class Body extends React.PureComponent{
 
@@ -22,9 +24,15 @@ class Body extends React.PureComponent{
             case 'caculator':
                 component = <CaculatorContainer />;
                 break;
+            case 'exercisePlan':
+                component = <ExercisePlanContainer />;
+                break;
+            case 'mealPlan':
+                component = <MealPlanContainer />;
+                break;
             default:
                 component = <LoginContainer />;
-                break;
+                 break;
         }
         return(
             <div className="bodyDiv">

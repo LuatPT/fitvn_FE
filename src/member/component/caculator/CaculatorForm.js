@@ -1,5 +1,6 @@
 import React from 'react'
 import Result from './Result'
+import "../../../css/caculatorForm.css";
 
 class CaculatorForm extends React.Component {
     
@@ -67,7 +68,7 @@ class CaculatorForm extends React.Component {
     render(){
         return (
             <div className="caculatorForm">
-               <form action="index.html" method="post">
+               <form action="index.html" className="form" method="post">
                 <h2>Nhập thông tin của bạn:</h2><br/>
                 <fieldset>
                     <legend><span className="number">1</span> Thông tin cơ bản</legend>

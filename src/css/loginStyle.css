@@ -11,7 +11,7 @@ body {
 }
 
 .full-screen-container {
-  background-image: url("https://images.unsplash.com/photo-1573496782646-e8d943a4bdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1573496782646-e8d943a4bdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80"); */
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -22,15 +22,18 @@ body {
 }
 
 .login-container {
-  background-color: hsla(201, 100%, 6%, 0.6);
+  background-color: hsl(121deg 19% 94%);
   padding: 50px 30px;
   min-width: 400px;
   width: 50%;
   max-width: 600px;
 }
 
+.login-container > form{
+  background-color: inherit;
+}
 .login-title {
-  color: #fff;
+  /* color: #fff; */
   text-align: center;
   margin: 0;
   margin-bottom: 40px;
@@ -45,7 +48,7 @@ body {
 }
 
 .input-group label {
-  color: #fff;
+  /* color: #fff; */
   font-weight: lighter;
   font-size: 1.5em;
   margin-bottom: 7px;
@@ -58,7 +61,7 @@ body {
   border: 1px solid hsl(201, 100%, 6%);
   outline: none;
   border-radius: 5px;
-  color: #fff;
+  /* color: #fff; */
   font-weight: lighter;
 }
 
@@ -74,7 +77,7 @@ body {
   border: 1px solid hsl(201, 100%, 50%);
   outline: none;
   font-size: 1.5em;
-  color: #fff;
+  /* color: #fff; */
   font-weight: lighter;
   margin-top: 20px;
   cursor: pointer;
@@ -89,5 +92,5 @@ body {
 }
 
 #login{
-  margin-top: 10%;
+  background-color: white;
 }
