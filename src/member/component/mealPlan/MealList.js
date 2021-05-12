@@ -3,25 +3,29 @@ import "../../../css/mealList.css";
 
 let dummyData = [
   {
-    id:0,
-    title: 'My Blog',
+      mealPlanId: "1",
+      userId: "1",
+      foodId: "1",
+      amount: "2",
+      foodName: "Rice",
+      foodImg: "https://cdn.loveandlemons.com/wp-content/uploads/2020/03/how-to-cook-rice.jpg",
+      foodCalo: "200",
+      foodServing: "100",
+      foodType: "Carb",
+      foodContent: "Good to build muscle, up size and not good for decrease weight"
   },
   {
-    id:1,
-    title: 'My Movie',
+    mealPlanId: "2",
+    userId: "1",
+    foodId: "1",
+    amount: "2",
+    foodName: "Rice Rpppp",
+    foodImg: "https://cdn.loveandlemons.com/wp-content/uploads/2020/03/how-to-cook-rice.jpg",
+    foodCalo: "200",
+    foodServing: "100",
+    foodType: "Carb",
+    foodContent: "Good to build muscle, up size and not good for decrease weight"
   },
-  {
-    id:2,
-    title: 'My App',
-  },
-  {
-    id:3,
-    title: 'My Book',
-  },
-  {
-    id:4,
-    title: 'My Computer',
-  }
 ];
 class MealList extends React.Component{
   state = {
@@ -30,11 +34,10 @@ class MealList extends React.Component{
     food: ""
   }
   // fetch data
-  // componentDidMount() {
-  //   fetch(REQUEST_URL)
-  //     .then(response => response.json())
-  //     .then(data => this.setState({data}))
-  // }
+  componentDidMount() {
+    fetch("http://localhost:8080/api/v1/foods")
+      .then(res => this.setState({data: res.data}))
+  }
   // Search input   
   onInput = e => this.setState({ [e.target.id]: e.target.value });
   // Select the wrapper and toggle class 'focus'
@@ -48,10 +51,11 @@ class MealList extends React.Component{
 
   render() {
     let { data, search, food } = this.state;
+    console.log(data);
     if (!data) {
       return <p>Loading</p>
     }
-    let filtered = data.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
+    let filtered = data.filter(item => item.foodName.toLowerCase().includes(search.toLowerCase()));
     console.log(filtered);
     return (
       <div>
@@ -59,7 +63,6 @@ class MealList extends React.Component{
           <div className="search">
             <input
               id="search"
-              type="search"
               value={this.state.search}
               placeholder="Search a food by name..."
               onChange={this.onInput}
@@ -72,18 +75,23 @@ class MealList extends React.Component{
           {search.length > 1 && filtered.length > 0 && (
             <ul className="list">
               {filtered.map((item,key) => (
-                <li key={key} onClick={() => this.onClickItem(item)}>{item.name}</li>
+                <li key={key} onClick={() => this.onClickItem(item)}>{item.foodName}</li>
               ))}
             </ul>
           )}
         </div>
         {food && (
-          <p className="result">
-            <b>Food:</b>
-            {food.title}
-            <span className="box" style={{backgroundColor: food.title}}/>
-            {food.id}
-          </p>
+          <div className="divRsMeal">
+            <p className="result">
+              <b>Food:</b>
+              {food.foodName}
+            </p>
+            <p className="result">
+              <b>Calo:</b>
+              {food.mealPlanId}
+            </p>
+            <button type="button" className="btn btn-outline-success">ADD TO MEAL</button>
+          </div>
         )}
       </div>
     )

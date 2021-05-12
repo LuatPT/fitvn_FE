@@ -71,3 +71,9 @@
     max-height: 10em;
   }
 }
+
+
+.divRsMeal{
+  margin: 2%;
+  display: inline-block;
+}

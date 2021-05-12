@@ -4,8 +4,8 @@ class Footer extends React.PureComponent{
 
     render(){
         return(
-            <div>
-                <p>Pham Tien Luat</p>
+            <div className="divFooter">
+                <p><b>Copy right@ 2021</b></p>
             </div>
         )
     }
