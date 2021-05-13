@@ -72,30 +72,32 @@ class CaculatorForm extends React.Component {
                 <h2>Nhập thông tin của bạn:</h2><br/>
                 <fieldset>
                     <legend><span className="number">1</span> Thông tin cơ bản</legend>
-                    <label htmlFor="name">Tên:</label>
+                    <label htmlFor="name" className="labelForm">Tên:</label>
                     <input type="text" id="name" name="name" className="textForm" placeholder="Nhập tên của bạn..." ref={this.name}/>
 
-                    <label htmlFor="age">Tuổi:</label>
+                    <label htmlFor="age" className="labelForm">Tuổi:</label>
                     <input type="number" id="age" name="age" className="textForm" placeholder="Nhập số tuổi của bạn..." ref={this.age}/>
 
-                    <label>Giới tính:</label>
-                    <input type="radio" id="male" value="male" name="gender" ref={this.gender}/><label htmlFor="male" className="light">Nam</label><br/>
-                    <input type="radio" id="female" value="female" name="gender" ref={this.gender}/><label htmlFor="female" className="light">Nữ</label>
+                    <label className="labelForm">Giới tính:</label>
+                    <input type="radio" id="male" value="male" name="gender" className="radioForm" ref={this.gender}/>
+                    <label htmlFor="male" className="light labelForm">Nam</label><br/>
+                    <input type="radio" id="female" value="female" name="gender" className="radioForm" ref={this.gender}/>
+                    <label htmlFor="female" className="light labelForm">Nữ</label>
                     
-                    <label htmlFor="height">Chiều cao(cm):</label>
-                    <input type="number" id="height" name="height" placeholder="Nhập chiều cao của bạn..." ref={this.height}/>
+                    <label htmlFor="height" className="labelForm">Chiều cao(cm):</label>
+                    <input type="number" id="height" name="height" className="textForm" placeholder="Nhập chiều cao của bạn..." ref={this.height}/>
                     
-                    <label htmlFor="weight">Cân nặng(kg):</label>
-                    <input type="number" id="weight" name="weight" placeholder="Nhập cân nặng của bạn..." ref={this.weight}/>
+                    <label htmlFor="weight" className="labelForm">Cân nặng(kg):</label>
+                    <input type="number" id="weight" name="weight" className="textForm" placeholder="Nhập cân nặng của bạn..." ref={this.weight}/>
 
                 </fieldset>
 
                 <fieldset>
-                     <label htmlFor="weight">Body Fat(%):</label>
-                    <input type="number" id="bodyFat" name="bodyFat" placeholder="Nhập chỉ số BDF..."ref={this.bodyFat} />
+                     <label htmlFor="weight" className="labelForm">Body Fat(%):</label>
+                    <input type="number" id="bodyFat" name="bodyFat" className="textForm" placeholder="Nhập chỉ số BDF..."ref={this.bodyFat} />
                     <legend><span className="number">2</span> Thông tin tập luyện</legend>
-                    <label htmlFor="volumeTrainer">Chế độ tập luyện</label>
-                    <select id="volumeTrainer" name="volumeTrainer" ref={this.volumeTrainer}>
+                    <label className="labelForm" htmlFor="volumeTrainer">Chế độ tập luyện</label>
+                    <select id="volumeTrainer" name="volumeTrainer" className="selectForm" ref={this.volumeTrainer}>
                                 <optgroup label="Newbie">
                                     <option value="1.2">Ít vận động</option>
                                     <option value="1.375">1-3 buổi/tuần</option>
@@ -109,15 +111,15 @@ class CaculatorForm extends React.Component {
                                 </optgroup>
                     </select>
 
-                    <label>Mục đích</label>
-                    <input type="checkbox" id="decreaseWeight" value="decrease" name="target" ref={this.target}/>
-                    <label className="light" htmlFor="decreaseWeight">Giảm cân</label><br/>
-                    <input type="checkbox" id="keepWeight" value="keep" name="target" ref={this.target}/>
-                    <label className="light" htmlFor="keepWeight">Duy trì</label><br/>
-                    <input type="checkbox" id="increaseWeight" value="increase" name="target" ref={this.target}/>
-                    <label className="light" htmlFor="increaseWeight">Tăng cân</label>
+                    <label className="labelForm">Mục đích</label>
+                    <input type="checkbox" id="decreaseWeight" value="decrease" name="target" className="checkForm" ref={this.target}/>
+                    <label className="light labelForm" htmlFor="decreaseWeight">Giảm cân</label><br/>
+                    <input type="checkbox" id="keepWeight" value="keep" name="target" className="checkForm" ref={this.target}/>
+                    <label className="light labelForm" htmlFor="keepWeight">Duy trì</label><br/>
+                    <input type="checkbox" id="increaseWeight" value="increase" name="target" className="checkForm" ref={this.target}/>
+                    <label className="light labelForm" htmlFor="increaseWeight">Tăng cân</label>
                 </fieldset>
-                <button type="submit" onClick={this.caculatorBMRTDEE}>Tính Toán</button>
+                <button type="submit" className="btnForm" onClick={this.caculatorBMRTDEE}>Tính Toán</button>
                 </form>
 
                  <Result bmi={this.state.bmi} bmr={this.state.bmr} tdee={this.state.tdee} />

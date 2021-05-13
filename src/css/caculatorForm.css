@@ -33,17 +33,8 @@
     text-align: center;
   }
   
-  .textForm
-  input[type="date"],
-  input[type="datetime"],
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="time"],
-  input[type="url"],
-  textarea,
-  select {
+  .textForm,
+  .selectForm {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     font-size: 16px;
@@ -58,18 +49,17 @@
     margin-bottom: 30px;
   }
   
-  input[type="radio"],
-  input[type="checkbox"] {
+  .radioForm, .checkForm {
     margin: 0 4px 8px 0;
   }
   
-  select {
+  .selectForm {
     padding: 6px;
     height: 32px;
     border-radius: 2px;
   }
   
-  button {
+  .btnForm {
     padding: 19px 39px 18px 39px;
     /* color: #FFF; */
     background-color: #4bc970;
@@ -93,12 +83,12 @@
     margin-bottom: 10px;
   }
   
-  label {
+  .labelForm {
     display: block;
     margin-bottom: 8px;
   }
   
-  label.light {
+ .light {
     font-weight: 300;
     display: inline;
   }

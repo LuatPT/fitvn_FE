@@ -3,7 +3,7 @@ import React from 'react'
 class Result extends React.Component {
     render(){
         var {bmi,bmr,tdee} = this.props;
-        var message = "BMI chỉ ra bạn đang ";
+        var message = "";
         if(bmi === 0){
             message = "";
         }else if(bmi < 18.5){
@@ -20,7 +20,7 @@ class Result extends React.Component {
                     <p>BMR của bạn là: <span className="result_val">{bmr.toFixed(2)}</span></p>
                     <p>TDEE của bạn là: <span className="result_val">{tdee.toFixed(2)}</span></p>
                     <p>BMI của bạn là: <span className="result_val">{bmi.toFixed(2)}</span></p>
-                    <p>{message}</p>
+                    <p>BMI chỉ ra bạn đang : <b>{message}</b></p>
             </div>
         )
     }
