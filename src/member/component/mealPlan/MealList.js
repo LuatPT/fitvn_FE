@@ -73,27 +73,27 @@ class MealList extends React.Component{
         {food && (
           <div className="divRsMeal">
             <div>
-              <p className="result">
+              <div className="result">
                 <b className="result__title">Food Type:</b>
                 <p>{food.foodType}</p>
-              </p>
-              <p className="result">
+              </div>
+              <div className="result">
                 <b className="result__title">Detail:</b>
                 <p>{food.foodContent}</p>
-              </p>
+              </div>
             </div>
-            <div class="media-image">
-              <div class="image-frame">
-                <div class="image-ratio">
+            <div className="media-image">
+              <div className="image-frame">
+                <div className="image-ratio">
                   <img src={food.foodImg} alt="Dont display" className="imgSearchDisp"/>
                 </div>
-                <div class="label label-new">
+                <div className="label label-new">
                   <p><b> {food.foodName}</b></p>
                   <p>{food.foodCalo} Calo per {food.foodServing}g</p>
                 </div>
               </div>
             </div>
-            <button type="button" className="btn btn-outline-success">ADD TO MEAL</button>
+            <button type="button" className="btn btn-success btnAddMeal">ADD TO MEAL</button>
           </div>
         )}
       </div>

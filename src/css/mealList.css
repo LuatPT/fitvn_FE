@@ -84,14 +84,9 @@
 .divRsMeal{
   margin: 2% 0;
 }
-.divRsMeal > div{
-  /* width: 83%;
-  margin: 0 auto; */
-}
-
-body {
-  background-color: #eef2f6;
-  font: normal 100%/1.5 helvetica, arial, sans-serif;
+.btnAddMeal{
+  display: block;
+  width: 100%;
 }
 
 .media-image {

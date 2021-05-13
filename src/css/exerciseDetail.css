@@ -130,7 +130,7 @@
   /* Layout */
   footer,
   .wrapper {
-    width: 80%;
+    width: 100%;
     max-width: 708px;
     min-width: 550px;
     margin: 0 auto;
@@ -150,7 +150,6 @@
   }
   header h2.title {
     display: inline-block;
-    float: right;
     padding: 4%;
   }
   
