@@ -24,9 +24,9 @@ class ExerciseList extends React.Component{
         var {listExercise} = this.props;
         const filterListExercise = listExercise.filter(ele => ele.exerciseName.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
         return(
-            <div>
+            <div className="divExerciseList">
                 <SearchExercise  searchExercise={this.searchExercise}/>
-                <div className="row justify-content-center">
+                <div className="row">
                     {
                         filterListExercise.map((ele,key) => (
                             <ExerciseDetail key={key} {...ele} />

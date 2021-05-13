@@ -29,14 +29,14 @@ class FoodList extends React.Component{
         console.log(listFood);
         const filterListFood = listFood.filter(ele => ele.foodName.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
         return(
-            <div>
+            <div className="divFoodList">
                 <SearchFood  searchFood={this.searchFood}/>
-                <div className="row justify-content-center">
-                    {
-                        filterListFood.map((ele,key) => (
-                            <FoodDetail key={key} {...ele} />
-                        ))
-                    }
+                <div className="row">
+                        {
+                            filterListFood.map((ele,key) => (
+                                <FoodDetail key={key} {...ele} />
+                            ))
+                        }
                 </div>
             </div>
         )
