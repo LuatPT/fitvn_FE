@@ -11,7 +11,9 @@
 .wrapper:hover, .wrapper.focus {
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 }
-
+.container {
+  width: 50%;
+}
 .search {
   display: flex;
   height: 3em;
@@ -54,7 +56,13 @@
 
 .result {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
+}
+.result__title {
+  min-width: 80px;
+  flex-shrink: 0;
+
 }
 .result b {
   margin-right: 0.5em;
@@ -70,4 +78,106 @@
   to {
     max-height: 10em;
   }
+}
+
+
+.divRsMeal{
+  margin: 2% 0;
+}
+.divRsMeal > div{
+  /* width: 83%;
+  margin: 0 auto; */
+}
+
+body {
+  padding: 2em;
+  background-color: #eef2f6;
+  font: normal 100%/1.5 helvetica, arial, sans-serif;
+}
+
+.media-image {
+  display: inline-block;
+  width: auto;
+}
+.media-image img {
+  display: block;
+}
+.media-image:hover .label {
+  padding-left: 1em;
+}
+
+.image-frame {
+  position: relative;
+  padding: 5px;
+  background-color: #FFF;
+  -moz-box-shadow: 0 1px 2px rgba(31, 41, 51, 0.5);
+  -webkit-box-shadow: 0 1px 2px rgba(31, 41, 51, 0.5);
+  box-shadow: 0 1px 2px rgba(31, 41, 51, 0.5);
+}
+.image-frame:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  -moz-box-shadow: 0 0 30px rgba(31, 41, 51, 0.25) inset;
+  -webkit-box-shadow: 0 0 30px rgba(31, 41, 51, 0.25) inset;
+  box-shadow: 0 0 30px rgba(31, 41, 51, 0.25) inset;
+  z-index: 10;
+}
+
+.label {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  display: inline-block;
+  padding: 0 0.75em;
+  border-radius: 5px 2px 2px 0;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2.35em;
+  font-weight: bold;
+  color: #6b4e00;
+  background-color: #ffc938;
+  z-index: 11;
+  -moz-border-radius: 5px 2px 2px 0;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 2px 2px 0;
+  -moz-box-shadow: 0px 2px 0 rgba(31, 41, 51, 0.1);
+  -webkit-box-shadow: 0px 2px 0 rgba(31, 41, 51, 0.1);
+  box-shadow: 0px 2px 0 rgba(31, 41, 51, 0.1);
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+.label:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 4px;
+  left: 0;
+  bottom: -4px;
+  background-color: #ffc938;
+}
+.label:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 6px;
+  bottom: -6px;
+  left: 0;
+  background-color: #9e7300;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+}
+.imgSearchDisp{
+  width: 100%;
 }

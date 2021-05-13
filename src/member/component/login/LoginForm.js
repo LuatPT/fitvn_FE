@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from "react";
 import "../../../css/loginStyle.css";
 
+
 function LoginForm (props){
     const[userName, setUserName] = useState('');
     const[password, setPassword] = useState('');
@@ -23,7 +24,7 @@ function LoginForm (props){
         loginAction(obj);
     }
     return(
-            <div className="full-screen-container" id="login">
+        <div className="full-screen-container" id="login">
                 <div className="login-container">
                     <h3 className="login-title">{props.message}</h3>
                     <form>
@@ -38,7 +39,7 @@ function LoginForm (props){
                         <button type="submit" className="login-button" onClick={submiForm}>Sign In</button>
                     </form>
                 </div>
-            </div>
+        </div>
         )
 }
 

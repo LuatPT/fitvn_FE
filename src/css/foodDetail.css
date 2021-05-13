@@ -1,42 +1,8 @@
-/* Food Detail */
-.foodDetail, .exerciseDetail{
-    background-color: white;
-    border: 0.5px solid black;
-    margin: 2%;
-    padding: 2%;
-    /* height: 300px; */
-    text-align: left;
+.foodDetail{
     box-shadow: 1px 2px 10px #888888;
-  }
-  
-  .inputSearch{
-    width: auto;
-    background-color: azure;
-  }
-  .caculatorDiv{
-    padding: 5%;
-  }
-  
-  .bodyDiv{
-    background-color: #f8f9fa;
-  }
-  
-  .result_val{
-    color: #5cb85c;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 1.1;
-  }
-  .spanHeader{
-    font-size: medium;
-    font-weight: bold;
-  }
+}
 
-  .spanHeader{
-    color: #878a8a;
-  }
-  /* List */
-  .divExerciseList{
+.divFoodList {
     font-family: Georgia;
     font-size: 13px;
     line-height: 1.5;
