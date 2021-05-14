@@ -169,7 +169,7 @@
 }
 
 .imageLogin {
-	max-width: 300px;
+	max-width: fit-content;
 	transition: transform 1.1s ease-in-out;
 	transition-delay: 0.4s;
 }

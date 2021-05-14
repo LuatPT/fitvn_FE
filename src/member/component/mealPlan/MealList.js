@@ -51,17 +51,10 @@ class MealList extends React.Component{
       <div className="container divExerciseList">
         <div className="wrapper">
           <div className="search">
-            <input
-              id="search"
-              value={this.state.search}
-              placeholder="Search a food by name..."
-              onChange={this.onInput}
-              onFocus={this.onFocus}
-              onBlur={this.onBlur}
-              autoComplete="off"
-            />
+            <input id="search" value={this.state.search} placeholder="Search a food by name..." onChange={this.onInput} onFocus={this.onFocus} onBlur={this.onBlur} autoComplete="off"/>
             <i className="fa fa-search"></i>
           </div>
+          
           {search.length > 1 && filtered.length > 0 && (
             <ul className="list">
               {filtered.map((item,key) => (
@@ -70,8 +63,10 @@ class MealList extends React.Component{
             </ul>
           )}
         </div>
+
         {food && (
           <div className="divRsMeal">
+
             <div>
               <div className="result">
                 <b className="result__title">Food Type:</b>
@@ -82,6 +77,7 @@ class MealList extends React.Component{
                 <p>{food.foodContent}</p>
               </div>
             </div>
+
             <div className="media-image">
               <div className="image-frame">
                 <div className="image-ratio">

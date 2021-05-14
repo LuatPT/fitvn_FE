@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -36,11 +38,12 @@
     transform: rotate(360deg);
   }
 }
+body{
+  overflow-y: scroll;
+}
 
-
-
-.divFooter{
-  margin-top: 2%;
+.divFooter p{
+  margin-bottom: 0;
 }
 
 .nav-item.active{

@@ -10,7 +10,7 @@
   }
   
   .bodyDiv{
-    background-color: #f8f9fa;
+    min-height: calc(100vh - 88px);
   }
   
   .result_val{

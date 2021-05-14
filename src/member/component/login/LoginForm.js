@@ -1,7 +1,8 @@
 import React from 'react';
 import {useState} from "react";
 import "../../../css/loginStyle.css";
-
+import leftImg from "../../../image/left1.png";
+import rightImg from "../../../image/right.png";
 
 function LoginForm (props){
     const[userName, setUserName] = useState('');
@@ -88,7 +89,7 @@ function LoginForm (props){
                 <div className="panel left-panel">
                 <div className="content">
                     <h3>New here ?</h3>
-                    <img src="https://center.gymaster.vn/wp-content/uploads/2020/02/jeff-seid-01.jpg" className="imageLogin" alt="" />
+                    <img src={leftImg} className="imageLogin" alt="Background" />
                     <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
                     ex ratione. Aliquid!
@@ -101,7 +102,7 @@ function LoginForm (props){
                 <div className="panel right-panel">
                 <div className="content">
                     <h3>One of us ?</h3>
-                    <img src="https://cdnb.artstation.com/p/assets/images/images/032/704/499/medium/evgeniya-balanenko-jeff-seid-by-ktrew-3k.jpg?1607227959" className="imageLogin" alt="" />
+                    <img src={rightImg} className="imageLogin" alt="Background" />
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
                         laboriosam ad deleniti.
