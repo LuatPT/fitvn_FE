@@ -8,8 +8,8 @@ class SearchExercise extends React.PureComponent{
     }
     render(){
         return(
-            <div >
-                  <input className="inputSearch" type="text" placeholder="Type a Exercise name..." onChange = {this.searchExerciseOnChange}/>   
+            <div className="form-group has-feedback has-search container">
+                <input type="text" className="form-control inputSearch" placeholder="Type a exercise name..." onChange = {this.searchExerciseOnChange}/>
             </div>
         )
     }

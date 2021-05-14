@@ -44,6 +44,9 @@
 }
 
 .nav-item.active{
-  font-weight: bold;
+  font-weight: bolder;
   text-shadow: 1px 0px 1px rgb(0 0 0 / 30%);
+}
+.navText{
+  font-size: 20px;
 }

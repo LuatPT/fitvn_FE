@@ -3,7 +3,7 @@ import Result from './Result'
 import "../../../css/caculatorForm.css";
 
 class CaculatorForm extends React.Component {
-    
+
     constructor(props){
         super(props);
 
@@ -21,13 +21,13 @@ class CaculatorForm extends React.Component {
         this.weight = React.createRef();
         this.bodyFat = React.createRef();
         this.volumeTrainer = React.createRef();
-        this.target = React.createRef();  
+        this.target = React.createRef();
     }
     caculatorBMRTDEE = (eve) => {
         eve.preventDefault();
 
         var weight = Number(this.weight.current.value);
-        
+
         var bodyFat = Number(this.bodyFat.current.value);
 
         var volumeTrainer = Number(this.volumeTrainer.current.value);
@@ -37,7 +37,7 @@ class CaculatorForm extends React.Component {
         var target = this.target.current.checked;
 
         var bmrTemp =  (21.6*weight*(100-bodyFat ) )/100;
-       
+
         var bmiTemp = weight/(height*height)*10000;
         switch (target) {
             case "decrease":
@@ -53,7 +53,7 @@ class CaculatorForm extends React.Component {
         }
 
         var tdeeTemp = bmrTemp*volumeTrainer;
-        
+
         if (bmrTemp !== 0 & tdeeTemp !== 0) {
             this.setState({
                 bmi: bmiTemp,
@@ -68,7 +68,7 @@ class CaculatorForm extends React.Component {
     render(){
         return (
             <div className="caculatorForm">
-               <form action="index.html" className="form" method="post">
+               <form action="index.html" className="caculForm" method="post">
                 <h2>Nhập thông tin của bạn:</h2><br/>
                 <fieldset>
                     <legend><span className="number">1</span> Thông tin cơ bản</legend>
@@ -83,10 +83,10 @@ class CaculatorForm extends React.Component {
                     <label htmlFor="male" className="light labelForm">Nam</label><br/>
                     <input type="radio" id="female" value="female" name="gender" className="radioForm" ref={this.gender}/>
                     <label htmlFor="female" className="light labelForm">Nữ</label>
-                    
+
                     <label htmlFor="height" className="labelForm">Chiều cao(cm):</label>
                     <input type="number" id="height" name="height" className="textForm" placeholder="Nhập chiều cao của bạn..." ref={this.height}/>
-                    
+
                     <label htmlFor="weight" className="labelForm">Cân nặng(kg):</label>
                     <input type="number" id="weight" name="weight" className="textForm" placeholder="Nhập cân nặng của bạn..." ref={this.weight}/>
 
@@ -98,17 +98,17 @@ class CaculatorForm extends React.Component {
                     <legend><span className="number">2</span> Thông tin tập luyện</legend>
                     <label className="labelForm" htmlFor="volumeTrainer">Chế độ tập luyện</label>
                     <select id="volumeTrainer" name="volumeTrainer" className="selectForm" ref={this.volumeTrainer}>
-                                <optgroup label="Newbie">
-                                    <option value="1.2">Ít vận động</option>
-                                    <option value="1.375">1-3 buổi/tuần</option>
-                                </optgroup>
-                                <optgroup label="Normal">
-                                    <option value="1.55">3-5 buổi/tuần</option>
-                                    <option value="1.725">6-7 buổi/tuần</option>
-                                </optgroup>
-                                <optgroup label="Pro">
-                                    <option value="1.9">2 buổi/ngày</option>
-                                </optgroup>
+                        <optgroup label="Newbie">
+                            <option value="1.2">Ít vận động</option>
+                            <option value="1.375">1-3 buổi/tuần</option>
+                        </optgroup>
+                        <optgroup label="Normal">
+                            <option value="1.55">3-5 buổi/tuần</option>
+                            <option value="1.725">6-7 buổi/tuần</option>
+                        </optgroup>
+                        <optgroup label="Pro">
+                            <option value="1.9">2 buổi/ngày</option>
+                        </optgroup>
                     </select>
 
                     <label className="labelForm">Mục đích</label>

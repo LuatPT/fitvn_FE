@@ -1,7 +1,9 @@
 import React from 'react'
 import LogoutContainer from "../member/container/login/LogoutContainer";
 import { useLocation  } from "react-router-dom";
-function Header (props){
+import imgLogo from "../image/logogym.png";
+
+function Header (){
         let currentPath = useLocation().pathname;
         var menus= [
             {
@@ -35,11 +37,16 @@ function Header (props){
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                      <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li className={currentPath === "/" ? "nav-item active": "nav-item"}>
+                                    <a className="nav-link"  href="/">
+                                        <img src={imgLogo} alt="Logo" style={{width: "32px"}}/>
+                                    </a>
+                            </li>
                                 {
                                     menus.map((ele,key) =>
                                     <li key={key} className={currentPath === ele.path ? "nav-item active": "nav-item"}>
-                                            <a  className="nav-link" href={ele.path}>
-                                                {ele.name} <span className="sr-only">(current)</span>
+                                            <a className="nav-link" href={ele.path}>
+                                               <span className="navText"> {ele.name}</span>
                                             </a>
                                     </li>
                                     )
@@ -48,12 +55,12 @@ function Header (props){
                         <ul className="navbar-nav">
                             <li className={currentPath === "/login" ? "nav-item active": "nav-item"}>
                                 <a className="nav-link"  href="/login">
-                                    Login <span className="sr-only"></span>
+                                    <span className="navText"> Login</span>
                                 </a>
                             </li>
                             <li className={currentPath === "/logout" ? "nav-item active": "nav-item"}>
                                 <a className="nav-link" href="/logout">
-                                        Logout <span className="sr-only"><LogoutContainer /></span>
+                                    <LogoutContainer />
                                 </a>
                             </li>
                         </ul>

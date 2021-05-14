@@ -6,7 +6,6 @@ import "../../../css/loginStyle.css";
 function LoginForm (props){
     const[userName, setUserName] = useState('');
     const[password, setPassword] = useState('');
-
     function changeUserName(eve){
         setUserName(eve.target.value);
     }
@@ -23,22 +22,96 @@ function LoginForm (props){
         //Login
         loginAction(obj);
     }
+    function signUp(){
+        const container = document.querySelector(".containerDiv");
+        container.classList.add("sign-up-mode");
+        container.classList.remove("sign-in-mode");
+    }
+    function signIn(){
+        const container = document.querySelector(".containerDiv");
+        container.classList.add("sign-in-mode");
+        container.classList.remove("sign-up-mode")
+    }
     return(
-        <div className="full-screen-container" id="login">
-                <div className="login-container">
-                    <h3 className="login-title">{props.message}</h3>
-                    <form>
-                        <div className="input-group">
-                            <label>User name</label>
-                            <input type="text" onChange={changeUserName}/>
-                        </div>
-                        <div className="input-group">
-                            <label>Password</label>
-                            <input type="password" onChange={changePassword}/>
-                        </div>
-                        <button type="submit" className="login-button" onClick={submiForm}>Sign In</button>
-                    </form>
+        // <div className="full-screen-container" id="login">
+        //         <div className="login-container">
+        //             <h3 className="login-title">{props.message}</h3>
+        //             <form>
+        //                 <div className="input-group">
+        //                     <label>User name</label>
+        //                     <input type="text" onChange={changeUserName}/>
+        //                 </div>
+        //                 <div className="input-group">
+        //                     <label>Password</label>
+        //                     <input type="password" onChange={changePassword}/>
+        //                 </div>
+        //                 <button type="submit" className="login-button" onClick={submiForm}>Sign In</button>
+        //             </form>
+        //         </div>
+        // </div>
+        <div className="containerDiv">
+            <h3 className="login-title">{props.message}</h3>
+            <div className="forms-container">
+                <div className="signin-signup">
+                <form className="sign-in-form loginform" >
+                    <h2 className="title">Sign in</h2>
+                    <div className="input-field">
+                        <i className="fa fa-user"></i>
+                        <input type="text" placeholder="Username" onChange={changeUserName} />
+                    </div>
+                    <div className="input-field">
+                        <i className="fa fa-lock"></i>
+                        <input type="password" placeholder="Password" onChange={changePassword}/>
+                    </div>
+                        <input type="submit" value="Login" onClick={submiForm} className="btnLogIn solid" />
+                </form>
+                <form className="sign-up-form loginform">
+                    <h2 className="title">Sign up</h2>
+                    <div className="input-field">
+                        <i className="fa fa-user"></i>
+                        <input type="text" placeholder="Username" onChange={changeUserName} />
+                    </div>
+                    <div className="input-field">
+                    <i className="fa fa-envelope"></i>
+                    <input type="email" placeholder="Email" />
+                    </div>
+                    <div className="input-field">
+                    <i className="fa fa-lock"></i>
+                    <input type="password" placeholder="Password" onChange={changePassword} />
+                    </div>
+                    <input type="submit" className="btnLogIn" value="Sign up" />
+                </form>
                 </div>
+            </div>
+
+            <div className="panels-container">
+                <div className="panel left-panel">
+                <div className="content">
+                    <h3>New here ?</h3>
+                    <img src="https://center.gymaster.vn/wp-content/uploads/2020/02/jeff-seid-01.jpg" className="imageLogin" alt="" />
+                    <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                    ex ratione. Aliquid!
+                    </p>
+                    <button className="btnLogIn transparent" id="sign-up-btn" onClick={signUp}>
+                    Sign up
+                    </button>
+                </div>
+                </div>
+                <div className="panel right-panel">
+                <div className="content">
+                    <h3>One of us ?</h3>
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/032/704/499/medium/evgeniya-balanenko-jeff-seid-by-ktrew-3k.jpg?1607227959" className="imageLogin" alt="" />
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                        laboriosam ad deleniti.
+                    </p>
+                    <button className="btnLogIn transparent" id="sign-in-btn" onClick={signIn}>
+                        Sign in
+                    </button>
+                </div>
+                </div>
+            </div>
         </div>
         )
 }
