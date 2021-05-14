@@ -7,6 +7,7 @@ import rightImg from "../../../image/right.png";
 function LoginForm (props){
     const[userName, setUserName] = useState('');
     const[password, setPassword] = useState('');
+
     function changeUserName(eve){
         // Set username
         setUserName(eve.target.value);
@@ -14,16 +15,31 @@ function LoginForm (props){
     function changePassword(eve){
         setPassword(eve.target.value);
     }
-    function submiForm(eve){
+    // Event to submit form
+    function loginForm(eve){
         eve.preventDefault()
         const {loginAction} = props ;
         let obj = {
             username: userName,
             password: password
         }
+        
+        console.log(obj);
         //Login
         loginAction(obj);
     }
+     function registerForm(eve){
+        eve.preventDefault()
+        const {registerAction} = props ;
+        let obj = {
+            username: userName,
+            password: password
+        }
+        console.log(obj);
+        //Register
+        registerAction(obj);
+    }
+    // To switch two state  to display sign in or sign up
     function signUp(){
         const container = document.querySelector(".containerDiv");
         container.classList.add("sign-up-mode");
@@ -52,11 +68,11 @@ function LoginForm (props){
         //         </div>
         // </div>
         <div className="containerDiv">
-            <h3 className="login-title">{props.message}</h3>
             <div className="forms-container">
                 <div className="signin-signup">
                 <form className="sign-in-form loginform" >
                     <h2 className="title">Sign in</h2>
+                    <h3 className="login-title">{props.messageLogin}</h3>
                     <div className="input-field">
                         <i className="fa fa-user"></i>
                         <input type="text" placeholder="Username" onChange={changeUserName} />
@@ -65,10 +81,11 @@ function LoginForm (props){
                         <i className="fa fa-lock"></i>
                         <input type="password" placeholder="Password" onChange={changePassword}/>
                     </div>
-                        <input type="submit" value="Login" onClick={submiForm} className="btnLogIn solid" />
+                        <input type="submit" value="Login" onClick={loginForm} className="btnLogIn solid" />
                 </form>
                 <form className="sign-up-form loginform">
                     <h2 className="title">Sign up</h2>
+                    <h3 className="login-title">{props.messageRegister}</h3>
                     <div className="input-field">
                         <i className="fa fa-user"></i>
                         <input type="text" placeholder="Username" onChange={changeUserName} />
@@ -81,7 +98,7 @@ function LoginForm (props){
                     <i className="fa fa-lock"></i>
                     <input type="password" placeholder="Password" onChange={changePassword} />
                     </div>
-                    <input type="submit" className="btnLogIn" value="Sign up" />
+                    <input type="submit" className="btnLogIn" onClick={registerForm} value="Sign up" />
                 </form>
                 </div>
             </div>
@@ -92,8 +109,8 @@ function LoginForm (props){
                     <h3>New here ?</h3>
                     <img src={leftImg} className="imageLogin" alt="Background" />
                     <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                    ex ratione. Aliquid!
+                        Join with me and get a fitness body and increase your health.
+                        Please click Sign up NOW!
                     </p>
                     <button className="btnLogIn transparent" id="sign-up-btn" onClick={signUp}>
                     Sign up
@@ -105,8 +122,8 @@ function LoginForm (props){
                     <h3>One of us ?</h3>
                     <img src={rightImg} className="imageLogin" alt="Background" />
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                        laboriosam ad deleniti.
+                        Welcome you comback
+                        Please login to use full of service 
                     </p>
                     <button className="btnLogIn transparent" id="sign-in-btn" onClick={signIn}>
                         Sign in
@@ -114,6 +131,7 @@ function LoginForm (props){
                 </div>
                 </div>
             </div>
+            
         </div>
         )
 }

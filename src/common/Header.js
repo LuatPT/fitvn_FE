@@ -5,6 +5,8 @@ import imgLogo from "../image/logogym.png";
 
 function Header (){
         let currentPath = useLocation().pathname;
+        let currentStateLogin = localStorage.getItem("isLogin");
+        console.log(currentStateLogin);
         var menus= [
             {
                 id: 1,
@@ -53,16 +55,17 @@ function Header (){
                                 }
                         </ul>
                         <ul className="navbar-nav">
-                            <li className={currentPath === "/login" ? "nav-item active": "nav-item"}>
+                            <li className={currentPath === "/login" ? "nav-item active": "nav-item"} >
                                 <a className="nav-link"  href="/login">
                                     <span className="navText"> Login</span>
                                 </a>
                             </li>
-                            <li className={currentPath === "/logout" ? "nav-item active": "nav-item"}>
+                            <li className={currentPath === "/logout" ? "nav-item active": "nav-item"} >
                                 <a className="nav-link" href="/logout">
                                     <LogoutContainer />
                                 </a>
                             </li>
+                            
                         </ul>
                     </div>
                 </nav>

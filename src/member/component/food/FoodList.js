@@ -26,7 +26,6 @@ class FoodList extends React.Component{
     }
     render(){
         var {listFood} = this.props;
-        console.log(listFood);
         const filterListFood = listFood.filter(ele => ele.foodName.toLowerCase().includes(this.state.keySearch.toLowerCase()) === true);
         return(
             <div className="divFoodList">
