@@ -8,6 +8,7 @@ function LoginForm (props){
     const[userName, setUserName] = useState('');
     const[password, setPassword] = useState('');
     function changeUserName(eve){
+        // Set username
         setUserName(eve.target.value);
     }
     function changePassword(eve){
