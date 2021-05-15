@@ -5,11 +5,14 @@ import ExerciseListContainer from '../member/container/exercise/ExerciseListCont
 import CaculatorContainer from '../member/container/caculator/CaculatorContainer'
 import MealPlanContainer from '../member/container/mealPlan/MealPlanContainer';
 import ExercisePlanContainer from '../member/container/exercisePlan/ExercisePlanContainer';
+import MealResultContainer from '../member/container/mealPlan/MealResultContainer';
+
 
 class Body extends React.PureComponent{
 
     render(){
         const {typeComponent} = this.props;
+        console.log(typeComponent)
         let component;
         switch (typeComponent) {
             case 'login':
@@ -29,6 +32,9 @@ class Body extends React.PureComponent{
                 break;
             case 'mealPlan':
                 component = <MealPlanContainer />;
+                break;
+            case 'mealResult':
+                 component = <MealResultContainer />;
                 break;
             default:
                 component = <LoginContainer />;

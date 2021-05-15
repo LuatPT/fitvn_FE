@@ -1,12 +1,10 @@
 import React from 'react'
-import LogoutContainer from "../member/container/login/LogoutContainer";
-import { useLocation  } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import imgLogo from "../image/logogym.png";
+import LogoutContainer from "../member/container/login/LogoutContainer";
 
 function Header (){
         let currentPath = useLocation().pathname;
-        let currentStateLogin = localStorage.getItem("isLogin");
-        console.log(currentStateLogin);
         var menus= [
             {
                 id: 1,
@@ -32,6 +30,11 @@ function Header (){
                 id: 5,
                 name: "Create workout plan",
                 path: "/exercisePlan",
+            },
+            {
+                id: 6,
+                name: "Your meal plan",
+                path: "/showYourMeal",
             }
         ];
         return (
@@ -46,7 +49,7 @@ function Header (){
                             </li>
                                 {
                                     menus.map((ele,key) =>
-                                    <li key={key} className={currentPath === ele.path ? "nav-item active": "nav-item"}>
+                                    <li key={key} className={currentPath === ele.path ? "nav-item active": "nav-item"} >
                                             <a className="nav-link" href={ele.path}>
                                                <span className="navText"> {ele.name}</span>
                                             </a>
@@ -55,17 +58,16 @@ function Header (){
                                 }
                         </ul>
                         <ul className="navbar-nav">
-                            <li className={currentPath === "/login" ? "nav-item active": "nav-item"} >
+                             <li className={currentPath === "/login" ? "nav-item active": "nav-item"}  id="logInSpan">
                                 <a className="nav-link"  href="/login">
                                     <span className="navText"> Login</span>
                                 </a>
                             </li>
-                            <li className={currentPath === "/logout" ? "nav-item active": "nav-item"} >
-                                <a className="nav-link" href="/logout">
-                                    <LogoutContainer />
+                             <li className={currentPath === "/logout" ? "nav-item active": "nav-item"} id="logOutSpan">
+                                <a className="nav-link"  href="/logout">
+                                  <LogoutContainer />
                                 </a>
                             </li>
-                            
                         </ul>
                     </div>
                 </nav>

@@ -90,6 +90,7 @@ class MealList extends React.Component{
               </div>
             </div>
             <button type="button" className="btn btn-success btnAddMeal">ADD TO MEAL</button>
+            <a href="/findMeal">Go to meal plan</a>
           </div>
         )}
       </div>

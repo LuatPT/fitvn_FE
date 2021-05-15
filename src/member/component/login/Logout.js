@@ -2,7 +2,8 @@ import React from 'react';
 
 function Logout (props){
     function doLogout(){
-        const {logoutAction} = props ;
+        const {logoutAction,isLogin} = props ;
+        console.log(isLogin);
         logoutAction();
        
     }

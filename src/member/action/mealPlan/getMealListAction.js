@@ -1,11 +1,11 @@
 import axios from "axios";
 import * as constants from "../../constants";
 
-export const getFoodListAction = () => {
+const getMealListAction = () => {
     return (dis) => {
         axios({
                 method: 'get',
-                url: constants.api+'/foods',
+                url: constants.api+'/mealPlans',
                 headers: {
                     // 'access-token': localStorage.getItem('token'),
                     'Content-Type': 'application/json',
@@ -14,8 +14,7 @@ export const getFoodListAction = () => {
                 }
             })
             .then(res => {
-                // console.log(res.data.data);
-                dis(getFoodList(res.data.data));
+                dis(getMealList(res.data.data));
             })
             .catch(err => {
                 console.log(err);
@@ -23,9 +22,11 @@ export const getFoodListAction = () => {
     }
 }
 
-const getFoodList = (listFood) => (
+const getMealList = (listMeal) => (
     {
-        type: 'GET_FOOD',
-        listFood
+        type: 'GET_MEAL_LIST',
+        listMeal
     }
 )
+
+export default getMealListAction

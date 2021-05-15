@@ -50,30 +50,36 @@ class App extends React.Component {
               name: "Workout Plan",
               path: "/exercisePlan",
               component: 'exercisePlan'
+            },
+            {
+              id: 7,
+              name: "Your Meal",
+              path: "/showYourMeal",
+              component: 'mealResult'
             }
         ];
         return (
         <Router>
           <div className="App">
-          <Header />
-              <Switch>
-                {
-                  menus.map((ele,key) =>
-                    {
-                      let typeComponent = ele.component;
-                      return(
-                        <Route key={key} path={ele.path}>
-                          {
-                            WrapperComponent(Body, typeComponent)
-                          }
-                        </Route>
+            <Header />
+                <Switch>
+                  {
+                    menus.map((ele,key) =>
+                      {
+                        let typeComponent = ele.component;
+                        return(
+                          <Route key={key} path={ele.path}>
+                            {
+                              WrapperComponent(Body, typeComponent)
+                            }
+                          </Route>
 
-                      )
-                    })
-                }
-              </Switch>
-            <Footer />
-          </div>
+                        )
+                      })
+                  }
+                </Switch>
+              <Footer />
+            </div>
         </Router>
     );
   }
