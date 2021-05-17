@@ -10,19 +10,19 @@ export const deleteFoodAction = (foodId) => {
           'access-token': localStorage.getItem('token') 
           }
       }).then((res) => {
-        const { getListFood } = getState();
-        const indexWantRemove = getListFood.findIndex(item => item.foodId === foodId);
-        getListCart.splice(indexWantRemove,1);
-        dispatch(getFood( [...getListFood]));
+        const { getListExercise } = getState();
+        const indexWantRemove = getListExercise.findIndex(item => item.foodId === foodId);
+        getListExercise.splice(indexWantRemove,1);
+        dispatch(getFood( [...getListExercise]));
       })
       .catch((err) => console.log(err));
 }};
-const deleteFood = (message) => ({
-  type: 'DELETE_FOOD',
+const deleteMeal = (message) => ({
+  type: 'DELETE_EXERCISE',
   message,
 });
 
-const getFood = (listFood) => ({
-  type: 'GET_FOOD',
-  listFood,
+const getMeal = (listMeal) => ({
+  type: 'GET_EXERCISE',
+  listMeal
 });

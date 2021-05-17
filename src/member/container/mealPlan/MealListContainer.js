@@ -4,7 +4,8 @@ import addMealToListAction from "../../action/mealPlan/addMealToListAction";
 import MealList from '../../component/mealPlan/MealList';
 
 const mapStateToProps = (state) =>({
-    listFood: state.listFoodReducer
+    listFood: state.listFoodReducer,
+    message: state.addMealReducer
 } )
 const mapDispatchToProps = (dispatch) => ({
     getFoodListAction: () => dispatch(getFoodListAction),

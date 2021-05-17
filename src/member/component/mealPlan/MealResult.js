@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../../css/mealList.css";
-import MealRsItem from "./MealRsItem";
+import MealRsItemContainer from "../../container/mealPlan/MealRsItemContainer";
 
 class MealList extends React.Component{
   // fetch data
@@ -28,7 +28,7 @@ class MealList extends React.Component{
           <tbody>
             {
               listMeal.map((ele,key) => (
-              <MealRsItem key={key} {...ele} />
+              <MealRsItemContainer key={key} {...ele} />
               ))
             }
           </tbody>

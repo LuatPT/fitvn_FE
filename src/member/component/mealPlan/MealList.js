@@ -59,6 +59,7 @@ class MealList extends React.Component{
     let filtered = data.filter(item => item.foodName.toLowerCase().includes(search.toLowerCase()));
     return (
       <div className="container divExerciseList">
+        <h3 className="msgText">{this.props.message}</h3>
         <div className="wrapper">
           <div className="search">
             <input id="search" value={this.state.search} placeholder="Search a food by name..." onChange={this.onInput} onFocus={this.onFocus} onBlur={this.onBlur} autoComplete="off"/>

@@ -19,10 +19,10 @@ const addMealToListAction = (obj) => {
         )
     }
 }
-const addMeal = (msg) =>{
+const addMeal = (message) =>{
     let result = {
         type: "ADD_MEAL",
-        msg
+        message
     }
     return result
 }

@@ -1,5 +1,10 @@
 function MealRsItem(props) {
     const ele = props;
+    function deleteMeal(mealPlanId){
+        const{deleteMealAction} = props;
+        deleteMealAction(mealPlanId);
+    }
+    
     return(
         <tr>
                 <td>
@@ -15,7 +20,8 @@ function MealRsItem(props) {
                         <button type="button" className="btn btn-outline-warning"> 
                             Update
                         </button>
-                        <button type="button" className="btn btn-outline-danger"> 
+                        <p>{ele.mealPlanId}</p>
+                        <button type="button" className="btn btn-outline-danger" onClick={()=>deleteMeal(ele.mealPlanId)}> 
                             Delete
                         </button>
                     </div>
