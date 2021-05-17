@@ -1,0 +1,29 @@
+import axios from "axios";
+import * as constants from "../../constants";
+
+const addMealToListAction = (obj) => {
+    return (dispatch) =>{
+        axios({
+            method: "post",
+            url: constants.api + "/mealPlans",
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            },
+            data: obj
+        })
+        .then( res=>{
+            dispatch(addMeal("Add meal sucess!!!"));
+        })
+        .catch(
+            dispatch(addMeal("Add meal failed!!!"))
+        )
+    }
+}
+const addMeal = (msg) =>{
+    let result = {
+        type: "ADD_MEAL",
+        msg
+    }
+    return result
+}
+export default addMealToListAction

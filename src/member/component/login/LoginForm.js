@@ -23,8 +23,6 @@ function LoginForm (props){
             username: userName,
             password: password
         }
-        
-        console.log(obj);
         //Login
         loginAction(obj);
     }
@@ -35,7 +33,6 @@ function LoginForm (props){
             username: userName,
             password: password
         }
-        console.log(obj);
         //Register
         registerAction(obj);
     }

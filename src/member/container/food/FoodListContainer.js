@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import FoodList from "../../component/food/FoodList";
-import * as GetFood from "../../action/food/getFoodListAction";
-import { bindActionCreators } from 'redux';
+import getFoodListAction from "../../action/food/getFoodListAction";
 
 const mapStateToProps = (state) =>({
     listFood: state.listFoodReducer
 } )
 const mapDispatchToProps = (dispatch) => ({
-    GetFood: bindActionCreators(GetFood, dispatch)
+    getFoodListAction: () => dispatch(getFoodListAction())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FoodList);

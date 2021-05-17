@@ -7,17 +7,13 @@ class FoodList extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            keySearch : "" 
+            keySearch : ""
         }
     }
-    // useEffect(() => {
-    //     const {GetFood} = this.props;
-    //     GetFood.getFoodListAction();
-    // });
 
     componentDidMount = () => {
-        const {GetFood} = this.props;
-        GetFood.getFoodListAction();
+        const {getFoodListAction} = this.props;
+        getFoodListAction();
     }
     searchFood = (value) => {
         this.setState({

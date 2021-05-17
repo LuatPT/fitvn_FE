@@ -10,20 +10,7 @@ var init = [
             foodServing: "0",
             foodType: "Protein",
             foodContent: "User after workout ok"
-        },
-        {
-            mealPlanId: "2",
-            userId: "1",
-            foodId: "2",
-            amount: "5",
-            foodName: "Salmon Fish",
-            foodImg: "https://images.thefishsite.com/fish/articles/processing/salmon-fillet.jpeg?profile=article-full",
-            foodCalo: "100",
-            foodServing: "200",
-            foodType: "Protein",
-            foodContent: "Is a protein"
-        }
-        ];
+        }];
 const listMealReducer = (state = init, action) => {
   switch (action.type) {
     case 'GET_MEAL_LIST':

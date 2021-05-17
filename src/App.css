@@ -57,3 +57,7 @@ body{
 .divRsMealList{
   margin: 1%;
 }
+
+.divRsMealListTable td{
+  vertical-align: middle;
+}

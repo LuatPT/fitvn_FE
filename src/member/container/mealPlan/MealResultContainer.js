@@ -6,7 +6,7 @@ const mapStateToProps = (state) =>({
     listMeal: state.listMealReducer
 } )
 const mapDispatchToProps = (dispatch) => ({
-    getMealListAction: () => dispatch(getMealListAction)
+    getMealListAction: () => dispatch(getMealListAction())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MealResult);

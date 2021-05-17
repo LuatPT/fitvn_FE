@@ -1,7 +1,7 @@
 function MealRsItem(props) {
     const ele = props;
     return(
-        <tr key={props.key}>
+        <tr>
                 <td>
                   <img src={ele.foodImg} alt="Error" width="80px" height="80px"/>
                 </td>
@@ -10,13 +10,15 @@ function MealRsItem(props) {
                 <td>{ele.foodServing}</td>
                 <td>{ele.foodType}</td>
                 <td>{ele.foodContent}</td>
-                <td style={{display:"flex", justifyContent: "space-around"}}>
-                    <button type="button" class="btn btn-outline-warning"> 
-                        Update
-                    </button>
-                    <button type="button" class="btn btn-outline-danger"> 
-                        Delete
-                    </button>
+                <td>
+                    <div style={{display:"flex", justifyContent: "space-around"}}>
+                        <button type="button" className="btn btn-outline-warning"> 
+                            Update
+                        </button>
+                        <button type="button" className="btn btn-outline-danger"> 
+                            Delete
+                        </button>
+                    </div>
                 </td>
         </tr>
     )

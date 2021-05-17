@@ -2,19 +2,19 @@ import axios from "axios";
 import * as constants from "../../constants";
 
 const getMealListAction = () => {
-    return (dis) => {
+    return (dispatch) => {
         axios({
                 method: 'get',
                 url: constants.api+'/mealPlans',
-                headers: {
-                    // 'access-token': localStorage.getItem('token'),
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*', 
-                    Accept: 'application/json'
-                }
+                // headers: {
+                //     // 'access-token': localStorage.getItem('token'),
+                //     'Content-Type': 'application/json',
+                //     'Access-Control-Allow-Origin': '*',
+                //     Accept: 'application/json'
+                // }
             })
             .then(res => {
-                dis(getMealList(res.data.data));
+                dispatch(getMealList(res.data.data));
             })
             .catch(err => {
                 console.log(err);

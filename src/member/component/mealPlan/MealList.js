@@ -3,16 +3,13 @@ import "../../../css/mealList.css";
 
 let init = [
   {
-      mealPlanId: "1",
-      userId: "1",
-      foodId: "1",
-      amount: "2",
-      foodName: "Rice",
-      foodImg: "https://cdn.loveandlemons.com/wp-content/uploads/2020/03/how-to-cook-rice.jpg",
-      foodCalo: "200",
-      foodServing: "100",
-      foodType: "Carb",
-      foodContent: "Good to build muscle, up size and not good for decrease weight"
+    foodId: "1",
+    foodName: "Rice",
+    foodImg: "https://cdn.loveandlemons.com/wp-content/uploads/2020/03/how-to-cook-rice.jpg",
+    foodCalo: "200",
+    foodServing: "100",
+    foodType: "Carb",
+    foodContent: "Good to build muscle, up size and not good for decrease weight"
   }
 ];
 class MealList extends React.Component{
@@ -23,18 +20,30 @@ class MealList extends React.Component{
   }
   // fetch data
   componentDidMount() {
-    console.log("ZOOOO");
     fetch("http://localhost:8080/api/v1/foods")
       .then(response => response.json())
       .then(result =>
           this.setState({data: result.data})
         )
   }
+
+  addMeal = (food) =>{
+    const {addMealToListAction} = this.props;
+    let obj = {
+      mealPlanId: 1,
+      userName: sessionStorage.getItem("user"),
+      foodId: food.foodId,
+      amount: "1"
+    }
+    addMealToListAction(obj);
+  }
+
   // Search input
   onInput = e => this.setState({ [e.target.id]: e.target.value });
   // Select the wrapper and toggle class 'focus'
   onFocus = e => e.target.parentNode.parentNode.classList.add('focus');
   onBlur = e => e.target.parentNode.parentNode.classList.remove('focus');
+
   // Select item
   onClickItem = item => this.setState({
     search: "",
@@ -43,6 +52,7 @@ class MealList extends React.Component{
 
   render() {
     let { data, search, food } = this.state;
+
     if (!data) {
       return <p>Loading</p>
     }
@@ -54,45 +64,49 @@ class MealList extends React.Component{
             <input id="search" value={this.state.search} placeholder="Search a food by name..." onChange={this.onInput} onFocus={this.onFocus} onBlur={this.onBlur} autoComplete="off"/>
             <i className="fa fa-search"></i>
           </div>
-          
+          {/* Display result: food list */}
           {search.length > 1 && filtered.length > 0 && (
             <ul className="list">
-              {filtered.map((item,key) => (
-                <li key={key} onClick={() => this.onClickItem(item)}>{item.foodName}</li>
-              ))}
+              {
+                filtered.map((item,key) => (
+                  <li key={key} onClick={() => this.onClickItem(item)}>{item.foodName}</li>
+                ))
+              }
             </ul>
           )}
         </div>
-
-        {food && (
-          <div className="divRsMeal">
-
-            <div>
-              <div className="result">
-                <b className="result__title">Food Type:</b>
-                <p>{food.foodType}</p>
-              </div>
-              <div className="result">
-                <b className="result__title">Detail:</b>
-                <p>{food.foodContent}</p>
-              </div>
-            </div>
-
-            <div className="media-image">
-              <div className="image-frame">
-                <div className="image-ratio">
-                  <img src={food.foodImg} alt="Dont display" className="imgSearchDisp"/>
+        {/* Display the item food be choosen */}
+        {
+          food &&(
+            <div className="divRsMeal">
+              <div>
+                <div className="result">
+                  <b className="result__title">Food Type:</b>
+                  <p>{food.foodType}</p>
                 </div>
-                <div className="label label-new">
-                  <p><b> {food.foodName}</b></p>
-                  <p>{food.foodCalo} Calo per {food.foodServing}g</p>
+                <div className="result">
+                  <b className="result__title">Detail:</b>
+                  <p>{food.foodContent}</p>
                 </div>
               </div>
+
+              <div className="media-image">
+                <div className="image-frame">
+                  <div className="image-ratio">
+                    <img src={food.foodImg} alt="Dont display" className="imgSearchDisp"/>
+                  </div>
+                  <div className="label label-new">
+                    <p><b> {food.foodName}</b></p>
+                    <p>{food.foodCalo} calo Per {food.foodServing}g</p>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" className="btn btn-success btnAddMeal" onClick={() => this.addMeal(food)}>ADD TO MEAL</button>
+              <a href="/findMeal"><h4>Go to meal plan</h4></a>
             </div>
-            <button type="button" className="btn btn-success btnAddMeal">ADD TO MEAL</button>
-            <a href="/findMeal">Go to meal plan</a>
-          </div>
-        )}
+          )
+        }
       </div>
     )
   }

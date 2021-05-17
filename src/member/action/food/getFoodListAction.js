@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as constants from "../../constants";
 
-export const getFoodListAction = () => {
+const getFoodListAction = () => {
     return (dis) => {
         axios({
                 method: 'get',
@@ -29,3 +29,5 @@ const getFoodList = (listFood) => (
         listFood
     }
 )
+
+export default getFoodListAction

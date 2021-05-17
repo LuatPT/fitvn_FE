@@ -14,6 +14,8 @@ const loginAction = (obj) => {
         .then(res=>{
             let fullToken = res.data.tokenType+" "+res.data.accessToken;
             localStorage.setItem("token", fullToken);
+            // save username to session
+            sessionStorage.setItem("user", obj.username);
             localStorage.setItem("isLogin", true);
             dispatch(login("Login sucess!!!"));
         })
