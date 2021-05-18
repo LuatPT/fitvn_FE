@@ -20,7 +20,6 @@ export const getExerciseListAction = () => {
                 }
             })
             .then(res => {
-                console.log(res.data.data);
                 dis(getExerciseList(res.data.data));
             })
             .catch(err => {

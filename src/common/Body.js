@@ -7,7 +7,7 @@ import MealListContainer from '../member/container/mealPlan/MealListContainer';
 import ExercisePlanContainer from '../member/container/exercisePlan/ExercisePlanContainer';
 import MealResultContainer from '../member/container/mealPlan/MealResultContainer';
 import UpdateMealContainer from '../member/container/mealPlan/UpdateMealContainer';
-
+import ErrorPage from './ErrorPage';
 
 class Body extends React.PureComponent{
 
@@ -38,9 +38,9 @@ class Body extends React.PureComponent{
                 break;
             case 'updateMealForm':
                 component = <UpdateMealContainer mealPlan_id={this.props.mealPlan_id}/>
-            break;
+                break;
             default:
-                component = <LoginContainer />;
+                component = <ErrorPage />;
                  break;
         }
         return(

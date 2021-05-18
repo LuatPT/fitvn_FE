@@ -28,12 +28,10 @@ class UpdateMealForm extends React.Component {
             foodId: this.foodId.current.value,
             amount: this.amount.current.value
         };
-        console.log(obj);
         updateMealAction(obj);
     }
     render(){
         const {meal} = this.props;
-        console.log(meal);
         if(Object.keys(meal).length === {}){
             return(<div className="divUpdateMeal">Loading...</div>)
         }

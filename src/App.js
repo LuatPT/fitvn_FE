@@ -80,6 +80,11 @@ class App extends React.Component {
                   <Route path='/updateMeal/:mealPlan_id' render={props =>
                       WrapperComponent(Body , "updateMealForm", {...props.match.params})
                     } />
+                  <Route path="*">
+                    {
+                      WrapperComponent(Body, "errorPage")
+                    }
+                  </Route>
                 </Switch>
               <Footer />
             </div>

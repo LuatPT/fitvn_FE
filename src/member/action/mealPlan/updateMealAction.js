@@ -2,7 +2,6 @@ import axios from "axios";
 import * as constants from "../../constants";
 
 const updateMealAction = (obj) => {
-    console.log(obj);
     return (dispatch) =>{
         axios({
             method: "PUT",

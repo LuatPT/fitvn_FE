@@ -14,7 +14,6 @@ const getFoodListAction = () => {
                 }
             })
             .then(res => {
-                // console.log(res.data.data);
                 dis(getFoodList(res.data.data));
             })
             .catch(err => {
