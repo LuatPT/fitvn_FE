@@ -5,7 +5,8 @@ import loginReducer from './login/loginReducer';
 import logoutReducer from './login/logoutReducer';
 import registerReducer from './login/registerReducer';
 import listMealReducer from './mealPlan/listMealReducer';
-import addMealReducer from './mealPlan/addMealReducer';
+import modifyMealReducer from './mealPlan/modifyMealReducer';
+import detailMealReducer from './mealPlan/detailMealReducer';
 
 export default combineReducers({
     listFoodReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     logoutReducer,
     registerReducer,
     listMealReducer,
-    addMealReducer
+    modifyMealReducer,
+    detailMealReducer
 });

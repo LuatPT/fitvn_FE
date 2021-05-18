@@ -1,29 +1,30 @@
 import axios from "axios";
 import * as constants from "../../constants";
 
-const addMealToListAction = (obj) => {
+const updateMealAction = (obj) => {
+    console.log(obj);
     return (dispatch) =>{
         axios({
-            method: "post",
-            url: constants.api + "/mealPlans",
+            method: "PUT",
+            url: constants.api + "/mealPlans/"+ obj.mealPlanId,
             headers: {
                 "Access-Control-Allow-Origin": "*"
             },
             data: obj
         })
         .then( res=>{
-            dispatch(addMeal("Add meal sucess!!!"));
+            dispatch(updateMeal("Update meal sucess!!!"));
         })
         .catch(
-            dispatch(addMeal("Add meal failed!!!"))
+            dispatch(updateMeal("Update meal failed!!!"))
         )
     }
 }
-const addMeal = (message) =>{
+const updateMeal = (message) =>{
     let result = {
-        type: "ADD_MEAL",
+        type: "UPDATE_MEAL",
         message
     }
     return result
 }
-export default addMealToListAction
+export default updateMealAction

@@ -1,0 +1,15 @@
+.divUpdateMeal div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divUpdateMeal label{
+    display: inline-block;
+    min-width: 120px;
+    text-align: left;
+}
+
+.divUpdateMeal{
+    margin-top: 50px;
+}

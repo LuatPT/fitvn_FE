@@ -28,14 +28,14 @@ class MealList extends React.Component{
   }
 
   addMeal = (food) =>{
-    const {addMealToListAction} = this.props;
+    const {addMealAction} = this.props;
     let obj = {
       mealPlanId: 1,
       userName: sessionStorage.getItem("user"),
       foodId: food.foodId,
       amount: "1"
     }
-    addMealToListAction(obj);
+    addMealAction(obj);
   }
 
   // Search input

@@ -1,12 +1,11 @@
 import axios from "axios";
 import * as constants from "../../constants";
 
-const getMealListAction = (obj) => {
+const getDetailMealAction = (mealPlanId) => {
     return (dispatch) => {
         axios({
-                method: 'post',
-                url: constants.api+'/getMealPlans',
-                data: obj
+                method: 'get',
+                url: constants.api+'/mealPlans/'+mealPlanId,
                 // headers: {
                 //     // 'access-token': localStorage.getItem('token'),
                 //     'Content-Type': 'application/json',
@@ -15,7 +14,7 @@ const getMealListAction = (obj) => {
                 // }
             })
             .then(res => {
-                dispatch(getMealList(res.data.data));
+                dispatch(getDetailMeal(res.data.data));
             })
             .catch(err => {
                 console.log(err);
@@ -23,11 +22,11 @@ const getMealListAction = (obj) => {
     }
 }
 
-const getMealList = (listMeal) => (
+const getDetailMeal = (meal) => (
     {
-        type: 'GET_MEAL_LIST',
-        listMeal
+        type: 'GET_DETAIL_MEAL',
+        meal
     }
 )
 
-export default getMealListAction
+export default getDetailMealAction

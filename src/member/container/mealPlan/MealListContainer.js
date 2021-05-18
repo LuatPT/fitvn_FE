@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import getFoodListAction from "../../action/food/getFoodListAction";
-import addMealToListAction from "../../action/mealPlan/addMealToListAction";
+import addMealAction from "../../action/mealPlan/addMealAction";
 import MealList from '../../component/mealPlan/MealList';
 
 const mapStateToProps = (state) =>({
     listFood: state.listFoodReducer,
-    message: state.addMealReducer
+    message: state.modifyMealReducer
 } )
 const mapDispatchToProps = (dispatch) => ({
     getFoodListAction: () => dispatch(getFoodListAction),
-    addMealToListAction: (obj) => dispatch(addMealToListAction(obj))
+    addMealAction: (obj) => dispatch(addMealAction(obj))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MealList);
