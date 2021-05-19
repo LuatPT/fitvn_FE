@@ -8,6 +8,7 @@ class UpdateMealForm extends React.Component {
         this.userName = React.createRef();
         this.foodId = React.createRef();
         this.amount = React.createRef();
+        this.mealPlanDate = React.createRef();
     }
     state = {
         mealPlanId: this.props.meal.mealPlanId,
@@ -22,11 +23,13 @@ class UpdateMealForm extends React.Component {
     onInput = e => this.setState({ [e.target.id]: e.target.value });
     update=()=> {
         const {updateMealAction} = this.props;
+        console.log(this.mealPlanDate.current.value);
         var obj = {
             mealPlanId: this.mealPlanId.current.value,
             userName: this.userName.current.value,
             foodId: this.foodId.current.value,
-            amount: this.amount.current.value
+            amount: this.amount.current.value,
+            mealPlanDate: this.mealPlanDate.current.value
         };
         updateMealAction(obj);
     }
@@ -53,6 +56,10 @@ class UpdateMealForm extends React.Component {
                 <div>
                     <label htmlFor="amount">Amount:</label>
                     <input type="number" name="amount" id="amount" defaultValue={meal.amount} ref={this.amount}/>
+                </div>
+                <div>
+                    <label htmlFor="amount">Date Create:</label>
+                    <input type="date" name="amount" id="amount" defaultValue={meal.mealPlanDate} ref={this.mealPlanDate}/>
                 </div>
                 <button type="button" className="btn btn-success" onClick={() => this.update()}>Update</button>
             </div>

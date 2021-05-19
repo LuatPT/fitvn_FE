@@ -14,6 +14,9 @@ function MealRsItem(props) {
                 <td>{ele.foodCalo}</td>
                 <td>{ele.foodServing}</td>
                 <td>{ele.amount}</td>
+                <td>{ele.protein}</td>
+                <td>{ele.carb}</td>
+                <td>{ele.fat}</td>
                 <td>{ele.foodType}</td>
                 <td>{ele.foodContent}</td>
                 <td>

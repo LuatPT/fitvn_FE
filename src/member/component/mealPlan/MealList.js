@@ -1,3 +1,4 @@
+import { now } from 'jquery';
 import React from 'react'
 import "../../../css/mealList.css";
 
@@ -33,7 +34,8 @@ class MealList extends React.Component{
       mealPlanId: 1,
       userName: sessionStorage.getItem("user"),
       foodId: food.foodId,
-      amount: "1"
+      amount: "1",
+      mealPlanDate: new Date().toISOString().slice(0, 10)
     }
     addMealAction(obj);
   }

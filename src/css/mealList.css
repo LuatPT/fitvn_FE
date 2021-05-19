@@ -175,3 +175,13 @@
 .imgSearchDisp{
   width: 100%;
 }
+
+.divRsMealList > input{
+  margin-bottom: 50px;
+}
+
+.divRsMealList > table > tfoot >tr{
+  background-color: aquamarine;
+  font-weight: bolder;
+  color: red;
+}
