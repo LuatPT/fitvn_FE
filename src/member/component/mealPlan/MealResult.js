@@ -6,12 +6,14 @@ import {Chart} from 'react-google-charts';
 class MealList extends React.Component{
   // fetch data
   componentDidMount() {
-    const {getMealListAction} = this.props;
+    const {getMealListAction, getCaloMapAction} = this.props;
+
     if(sessionStorage.getItem("user")){
       var obj = {
         userName: sessionStorage.getItem("user"),
         mealPlanDate: new Date().toISOString().slice(0, 10)
       }
+      getCaloMapAction({userName:sessionStorage.getItem("user")});
       getMealListAction(obj);
     }else{
       alert("Please login !")
@@ -31,7 +33,17 @@ class MealList extends React.Component{
     }
   }
   render() {
-    const {listMeal} = this.props;
+    const {listMeal,listCaloMap} = this.props;
+    let dataForMap = [["Calo", "Actually", "Expect"],['Start', 0, 2500]];
+    const options = {
+    chart: {
+        title: "Calo Chart",
+        subtitle: "Every day"
+      }
+    };
+    listCaloMap.map(ele=> 
+      dataForMap.push([ele.mealPlanDate, ele.totalCalo, 2500])
+    )
     var sumCalo =  listMeal.reduce((sum, obj) => { return sum + obj.foodCalo }, 0);
     var sumProtein = listMeal.reduce((sum, obj) => { return sum + obj.protein }, 0);
     var sumCarb = listMeal.reduce((sum, obj) => { return sum + obj.carb }, 0);
@@ -105,58 +117,28 @@ class MealList extends React.Component{
           </tfoot>
         </table>
         <div className="row">
-          {/* <Chart
-            width={'500px'}
-            height={'300px'}
+          <Chart
+            width={'700px'}
+            height={'700px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={[
-              ['Task', 'Hours per Day'],
-              ['Work', 11],
-              ['Eat', 2],
-              ['Commute', 2],
-              ['Watch TV', 2],
-              ['Sleep', 7],
+              ['Macro', 'Calo per Day'],
+              ['Protein', sumProtein],
+              ['Carb', sumCarb],
+              ['Fat', sumFat],
             ]}
             options={{
-              title: 'My Daily Activities',
+              title: 'My Daily Macro',
             }}
             rootProps={{ 'data-testid': '1' }}
-          /> */}
-          <Chart
-            width={'600px'}
-            height={'400px'}
+          />
+           <Chart
             chartType="Line"
-            loader={<div>Loading Chart</div>}
-            data={[
-              [
-                'Day',
-                'Guardians of the Galaxy',
-                'The Avengers',
-                'Transformers: Age of Extinction',
-              ],
-              [1, 37.8, 80.8, 41.8],
-              [2, 30.9, 69.5, 32.4],
-              [3, 25.4, 57, 25.7],
-              [4, 11.7, 18.8, 10.5],
-              [5, 11.9, 17.6, 10.4],
-              [6, 8.8, 13.6, 7.7],
-              [7, 7.6, 12.3, 9.6],
-              [8, 12.3, 29.2, 10.6],
-              [9, 16.9, 42.9, 14.8],
-              [10, 12.8, 30.9, 11.6],
-              [11, 5.3, 7.9, 4.7],
-              [12, 6.6, 8.4, 5.2],
-              [13, 4.8, 6.3, 3.6],
-              [14, 4.2, 6.2, 3.4],
-            ]}
-            options={{
-              chart: {
-                title: 'Box Office Earnings in First Two Weeks of Opening',
-                subtitle: 'in millions of dollars (USD)',
-              },
-            }}
-            rootProps={{ 'data-testid': '3' }}
+            width="100%"
+            height="400px"
+            data={dataForMap}
+            options={options}
           />
         </div>
       </div>

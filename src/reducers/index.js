@@ -7,6 +7,7 @@ import registerReducer from './login/registerReducer';
 import listMealReducer from './mealPlan/listMealReducer';
 import modifyMealReducer from './mealPlan/modifyMealReducer';
 import detailMealReducer from './mealPlan/detailMealReducer';
+import getCaloMapReducer from './mealPlan/getCaloMapReducer';
 
 export default combineReducers({
     listFoodReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     registerReducer,
     listMealReducer,
     modifyMealReducer,
-    detailMealReducer
+    detailMealReducer,
+    getCaloMapReducer
 });

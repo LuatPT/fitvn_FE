@@ -76,7 +76,7 @@ class CaculatorForm extends React.Component {
             bodyFat:  this.bodyFat.current.value,
             target: this.target.current.value
         };
-        console.log(obj);
+        addUserInfoAction(obj);
         //Show result panel
         document.getElementById("showResult").style.display = "inline";
     }
