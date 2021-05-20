@@ -1,4 +1,3 @@
-import { now } from 'jquery';
 import React from 'react'
 import "../../../css/mealList.css";
 

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import Caculator from "../../component/caculator/Caculator";
+import addUserInfoAction from "../../action/caculator/addUserInfoAction";
+import CaculatorForm from '../../component/caculator/CaculatorForm';
 
-// const mapStateToProps = (state) =>({
-//     listExercise: state.listExerciseReducer
-// } )
-// const mapDispatchToProps = (dispatch) => {
-    
-// }
+const mapStateToProps = (state) =>({
+    message: state.loginReducer
+} )
+const mapDispatchToProps = (dispatch) => ({
+    addUserInfoAction: (obj) => dispatch(addUserInfoAction(obj))
+})
 
-export default connect(null, null)(Caculator);
+export default connect(mapStateToProps, mapDispatchToProps)(CaculatorForm);
