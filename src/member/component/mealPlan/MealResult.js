@@ -34,15 +34,18 @@ class MealList extends React.Component{
   }
   render() {
     const {listMeal,listCaloMap} = this.props;
-    let dataForMap = [["Calo", "Actually", "Expect"],['Start', 0, 2500]];
+    let dataForMap = [["Calo", "Actually", "Expect"],['Start', 0, 1500]];
     const options = {
+    backgroundColor: {
+        fill: '#FF0000'
+    },
     chart: {
         title: "Calo Chart",
-        subtitle: "Every day"
+        subtitle: "(kCal)"
       }
     };
     listCaloMap.map(ele=> 
-      dataForMap.push([ele.mealPlanDate, ele.totalCalo, 2500])
+      dataForMap.push([ele.mealPlanDate, ele.totalCalo, 1500])
     )
     var sumCalo =  listMeal.reduce((sum, obj) => { return sum + obj.foodCalo }, 0);
     var sumProtein = listMeal.reduce((sum, obj) => { return sum + obj.protein }, 0);
@@ -51,7 +54,6 @@ class MealList extends React.Component{
     return (
       <div className="divRsMealList">
         <h3>{this.props.message}</h3>
-       
         <input type="date" defaultValue={new Date().toISOString().slice(0, 10)} onBlur={this.changeDate}/>
         <table className="divRsMealListTable table table-bordered">
           <thead>
@@ -116,10 +118,10 @@ class MealList extends React.Component{
             </tr>
           </tfoot>
         </table>
-        <div className="row">
+        <div className="displayChart">
           <Chart
-            width={'700px'}
-            height={'700px'}
+            width={'800px'}
+            height={'600px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={[
@@ -135,8 +137,8 @@ class MealList extends React.Component{
           />
            <Chart
             chartType="Line"
-            width="100%"
-            height="400px"
+            width="800px"
+            height="600px"
             data={dataForMap}
             options={options}
           />

@@ -185,3 +185,8 @@
   font-weight: bolder;
   color: red;
 }
+
+.displayChart{
+  display: flex;
+  justify-content: space-between;
+}
