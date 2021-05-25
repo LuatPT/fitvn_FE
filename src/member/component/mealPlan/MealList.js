@@ -20,7 +20,7 @@ class MealList extends React.Component{
   }
   // fetch data
   componentDidMount() {
-    fetch("http://localhost:8080/api/v1/foods")
+    fetch("http://fitvnapi.herokuapp.com/v1/foods")
       .then(response => response.json())
       .then(result =>
           this.setState({data: result.data})
