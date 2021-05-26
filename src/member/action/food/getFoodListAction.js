@@ -9,7 +9,6 @@ const getFoodListAction = () => {
                 headers: {
                     // 'access-token': localStorage.getItem('token'),
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*', 
                     Accept: 'application/json'
                 }
             })

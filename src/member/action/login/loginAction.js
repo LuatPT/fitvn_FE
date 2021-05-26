@@ -6,9 +6,9 @@ const loginAction = (obj) => {
         axios({
             method: "post",
             url: constants.api + "/login",
-            headers: {
-                "Access-Control-Allow-Origin": "*"
-            },
+            // headers: {
+            //     "Access-Control-Allow-Origin": "*"
+            // },
             data: obj
         })
         .then(res=>{

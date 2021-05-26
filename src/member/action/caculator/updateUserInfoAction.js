@@ -6,9 +6,9 @@ const updateUserInfoAction = (obj) => {
         axios({
             method: "put",
             url: constants.api + "/userInfos/"+ obj.infoId,
-            headers: {
-                "Access-Control-Allow-Origin": "*"
-            },
+            // headers: {
+            //     "Access-Control-Allow-Origin": "*"
+            // },
             data: obj
         })
         .then( res=>{

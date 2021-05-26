@@ -6,9 +6,9 @@ const updateMealAction = (obj) => {
         axios({
             method: "PUT",
             url: constants.api + "/mealPlans/"+ obj.mealPlanId,
-            headers: {
-                "Access-Control-Allow-Origin": "*"
-            },
+            // headers: {
+            //     "Access-Control-Allow-Origin": "*"
+            // },
             data: obj
         })
         .then( res=>{

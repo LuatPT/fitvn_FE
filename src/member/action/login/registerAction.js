@@ -6,9 +6,9 @@ const registerAction = (obj) => {
         axios({
             method: "post",
             url: constants.api + "/register",
-            headers: {
-                "Access-Control-Allow-Origin": "*"
-            },
+            // headers: {
+            //     "Access-Control-Allow-Origin": "*"
+            // },
             data: obj
         })
         .then(res=>{
