@@ -21,7 +21,7 @@ class MealList extends React.Component{
   }
   // fetch data
   componentDidMount() {
-    fetch(constants.api+"/foods")
+    fetch(constants.api+"/foods",  method: 'GET', headers: constants.commonHeader)
       .then(response => response.json())
       .then(result =>
           this.setState({data: result
