@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../../css/mealList.css";
+import * as constants from "../../constants";
 
 let init = [
   {
@@ -20,10 +21,12 @@ class MealList extends React.Component{
   }
   // fetch data
   componentDidMount() {
-    fetch("https://fitvnapi.herokuapp.com/v1/foods")
+    fetch(constants.api+"/foods")
       .then(response => response.json())
       .then(result =>
-          this.setState({data: result.data})
+          this.setState({data: result
+          
+          })
         )
   }
 
@@ -53,7 +56,6 @@ class MealList extends React.Component{
 
   render() {
     let { data, search, food } = this.state;
-
     if (!data) {
       return <p>Loading</p>
     }

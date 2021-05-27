@@ -4,8 +4,6 @@ export const addFoodAction = (obj) => {
   axios.({
     method: 'post',
     url: constants.api + '/exercises', obj, 
-    headers: { 
-      'access-token': localStorage.getItem('token') 
-    }
+    headers: constants.commonHeader
   });
 }

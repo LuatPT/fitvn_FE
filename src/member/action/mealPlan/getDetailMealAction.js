@@ -6,15 +6,10 @@ const getDetailMealAction = (mealPlanId) => {
         axios({
                 method: 'get',
                 url: constants.api+'/mealPlans/'+mealPlanId,
-                // headers: {
-                //     // 'access-token': localStorage.getItem('token'),
-                //     'Content-Type': 'application/json',
-                //     'Access-Control-Allow-Origin': '*',
-                //     Accept: 'application/json'
-                // }
+                headers: constants.commonHeader
             })
             .then(res => {
-                dispatch(getDetailMeal(res.data.data));
+                dispatch(getDetailMeal(res.data));
             })
             .catch(err => {
                 console.log(err);

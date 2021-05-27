@@ -13,7 +13,7 @@ const getFoodListAction = () => {
                 }
             })
             .then(res => {
-                dis(getFoodList(res.data.data));
+                dis(getFoodList(res.data));
             })
             .catch(err => {
                 console.log(err);

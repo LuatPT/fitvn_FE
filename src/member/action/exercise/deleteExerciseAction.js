@@ -6,9 +6,7 @@ export const deleteFoodAction = (foodId) => {
     axios({
       method: 'delete',
       url: constants.api + '/foods/' + foodId,
-      headers: { 
-          'access-token': localStorage.getItem('token') 
-          }
+      headers: constants.commonHeader
       }).then((res) => {
         const { getListExercise } = getState();
         const indexWantRemove = getListExercise.findIndex(item => item.foodId === foodId);

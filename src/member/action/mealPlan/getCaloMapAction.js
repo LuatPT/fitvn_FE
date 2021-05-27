@@ -6,16 +6,11 @@ const getCaloMapAction = (obj) => {
         axios({
                 method: 'post',
                 url: constants.api+'/getCaloMap',
-                data: obj
-                // headers: {
-                //     // 'access-token': localStorage.getItem('token'),
-                //     'Content-Type': 'application/json',
-                //     'Access-Control-Allow-Origin': '*',
-                //     Accept: 'application/json'
-                // }
+                data: obj,
+                headers: constants.commonHeader,
             })
             .then(res => {
-                dispatch(getCaloMap(res.data.data));
+                dispatch(getCaloMap(res.data));
             })
             .catch(err => {
                 console.log(err);
