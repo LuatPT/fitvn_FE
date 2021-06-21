@@ -11,9 +11,9 @@ class ExerciseList extends React.Component{
         }
     }
 
-    componentDidMount = () => {
+    async componentDidMount (){
         const {GetExercise} = this.props;
-        GetExercise.getExerciseListAction();
+        await GetExercise.getExerciseListAction();
     }
     searchExercise = (value) => {
         this.setState({

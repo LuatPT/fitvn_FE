@@ -11,9 +11,9 @@ class FoodList extends React.Component{
         }
     }
 
-    componentDidMount = () => {
+    async componentDidMount (){
         const {getFoodListAction} = this.props;
-        getFoodListAction();
+        await getFoodListAction();
     }
     searchFood = (value) => {
         this.setState({

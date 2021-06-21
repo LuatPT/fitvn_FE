@@ -8,6 +8,7 @@ import ExercisePlanContainer from '../member/container/exercisePlan/ExercisePlan
 import MealResultContainer from '../member/container/mealPlan/MealResultContainer';
 import UpdateMealContainer from '../member/container/mealPlan/UpdateMealContainer';
 import ErrorPage from './ErrorPage';
+import PaymentContainer from '../member/container/payment/PaymentContainer';
 
 class Body extends React.PureComponent{
 
@@ -38,6 +39,9 @@ class Body extends React.PureComponent{
                 break;
             case 'updateMealForm':
                 component = <UpdateMealContainer mealPlan_id={this.props.mealPlan_id}/>
+                break;
+            case 'payment':
+                component = <PaymentContainer />
                 break;
             default:
                 component = <ErrorPage />;

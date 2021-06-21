@@ -8,6 +8,11 @@ import listMealReducer from './mealPlan/listMealReducer';
 import modifyMealReducer from './mealPlan/modifyMealReducer';
 import detailMealReducer from './mealPlan/detailMealReducer';
 import getCaloMapReducer from './mealPlan/getCaloMapReducer';
+import getProvinceReducer from './payment/getProvinceReducer';
+import getDistrictReducer from './payment/getDistrictReducer';
+import getWardReducer from './payment/getWardReducer';
+import getTransportReducer from './payment/getTransportReducer';
+import getFeeReducer from './payment/getFeeReducer';
 
 export default combineReducers({
     listFoodReducer,
@@ -18,5 +23,10 @@ export default combineReducers({
     listMealReducer,
     modifyMealReducer,
     detailMealReducer,
-    getCaloMapReducer
+    getCaloMapReducer,
+    getProvinceReducer,
+    getDistrictReducer,
+    getWardReducer,
+    getTransportReducer,
+    getFeeReducer
 });

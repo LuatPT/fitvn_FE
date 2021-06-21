@@ -56,7 +56,13 @@ class App extends React.Component {
               name: "Your Meal",
               path: "/showYourMeal",
               component: 'mealResult'
-            }
+            },
+            {
+            id: 8,
+            name: "Payment",
+            path: "/payment",
+            component: 'payment'
+          }
         ];
         return (
         <Router>

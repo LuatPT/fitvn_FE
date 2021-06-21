@@ -19,8 +19,8 @@ class MealList extends React.Component{
     food: ""
   }
   // fetch data
-  componentDidMount() {
-    fetch("http://localhost:8080/api/v1/foods")
+  async componentDidMount (){
+    await fetch("http://localhost:8080/api/v1/foods")
       .then(response => response.json())
       .then(result =>
           this.setState({data: result.data})

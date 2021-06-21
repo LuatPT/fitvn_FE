@@ -10,9 +10,9 @@ import reportWebVitals from './reportWebVitals';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
+    <React.Fragment>
       <App />
-    </React.StrictMode>
+    </React.Fragment>
   </Provider>,
   document.getElementById('root')
 );

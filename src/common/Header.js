@@ -36,6 +36,11 @@ function Header (){
                 name: "Your meal plan",
                 path: "/showYourMeal",
             }
+            ,{
+                id: 7,
+                name: "Payment",
+                path: "/payment",
+            }
         ];
         return (
             <div>
