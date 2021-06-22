@@ -4,7 +4,8 @@ import CheckOut from '../../component/payment/Checkout';
 import paymentWithVnPay from "../../action/payment/paymentWithVnPay";
 
 const mapStateToProps = (state) =>({
-    message: state.payVnPayReducer,
+    url: state.payVnPayReducer,
+    fee: state.getFeeReducer
 } )
 const mapDispatchToProps = (dispatch) => ({
     paymentWithVnPay: (obj) => dispatch(paymentWithVnPay(obj)),

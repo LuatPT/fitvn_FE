@@ -113,7 +113,7 @@ class Payment extends React.Component{
             </div>
             <div>
                 <h3>{this.state.address}</h3>
-                <h3>{ transportType === "" ? "" : "Transport: "+transportType[0].short_name }</h3>
+                <h3>{ transportType == "" ? "" : "Transport: "+transportType[0].short_name }</h3>
                 <h3>{fee === 0 ? "" : "Cost: "+ fee.total + "VND"}</h3>
             </div>
             <button> <a href="/checkOut">CheckOut</a></button>

@@ -2,10 +2,10 @@
 const payVnPayReducer = (state = "", action) => {
   switch (action.type) {
     case 'PAY_VNPAY':
-      if (action.message === "") {
+      if (action.url === "") {
         return state
       }else{
-        return action.message;
+        return action.url;
       }
     default:
       return state;

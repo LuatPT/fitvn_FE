@@ -4,7 +4,7 @@ import * as constants from "../../constants";
 const paymentWithVnPay = (obj) => {
     return (dis) => {
         axios({
-                method: 'get',
+                method: 'post',
                 url: constants.api+'/paymentVNPay',
                 headers: {
                 },
@@ -25,10 +25,10 @@ const paymentWithVnPay = (obj) => {
     }
 }
 
-const payVNPay = (message) => (
+const payVNPay = (url) => (
     {
         type: 'PAY_VNPAY',
-        message
+        url
     }
 )
 
