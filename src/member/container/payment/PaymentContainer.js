@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
     getDistrictAction: (obj) => dispatch(getDistrictAction(obj)),
     getWardAction: (obj) => dispatch(getWardAction(obj)),
     getTransportTypeAction: (obj) => dispatch(getTransportTypeAction(obj)),
-    getFeeAction: (obj) => dispatch(getFeeAction(obj))
+    getFeeAction: (obj) => dispatch(getFeeAction(obj)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Payment);
