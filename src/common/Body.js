@@ -9,7 +9,8 @@ import MealResultContainer from '../member/container/mealPlan/MealResultContaine
 import UpdateMealContainer from '../member/container/mealPlan/UpdateMealContainer';
 import ErrorPage from './ErrorPage';
 import PaymentContainer from '../member/container/payment/PaymentContainer';
-import CheckOutContainer from '../member/container/payment/CheckOutContainer';
+import CheckOutVnPayContainer from '../member/container/payment/CheckOutVnPayContainer';
+import CheckOutMoMoContainer from '../member/container/payment/CheckOutMoMoContainer';
 import CheckOutSuccessContainer from '../member/container/payment/CheckOutSuccessContainer';
 
 class Body extends React.PureComponent{
@@ -46,8 +47,11 @@ class Body extends React.PureComponent{
                 component = <PaymentContainer />
                 break;
             case 'checkOutVnPay':
-                component = <CheckOutContainer />
+                component = <CheckOutVnPayContainer />
                 break;
+            case 'checkOutMoMo':
+                component = <CheckOutMoMoContainer />
+                break;    
             case 'checkOutSuccess':
                 component = <CheckOutSuccessContainer />
                 break;

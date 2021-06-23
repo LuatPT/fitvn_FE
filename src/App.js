@@ -69,8 +69,14 @@ class App extends React.Component {
               path: "/checkOutVnPay/:fee",
               component: 'checkOutVnPay'
             },
-            {
+             {
               id: 10,
+              name: "Check Out MoMo",
+              path: "/checkOutMoMo/:fee",
+              component: 'checkOutMoMo'
+            },
+            {
+              id: 11,
               name: "CheckOutSuccess",
               path: "/checkOutSuccess",
               component: 'checkOutSuccess'

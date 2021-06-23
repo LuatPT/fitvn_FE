@@ -5,6 +5,14 @@ export const apiTransport = 'https://online-gateway.ghn.vn/shiip/public-api/v2/s
 export const apiFee = 'https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee'
 export const tokenGHN = "47dd450d-d244-11eb-8d6a-bebc46395325";
 
+export const momoInfo = {
+    endPoint: "https://test-payment.momo.vn/gw_payment/transactionProcessor",
+    partnerCode : "MOMO08DT20210623",
+    accessKey : "klm05TvNBzhg7h7j",
+    secretKey: "fitVnSecretKeyFromMomo",
+    notifyUrl: "http://localhost:8080/api/v1/saveInfoMoMo",
+    returnUrl: "http://localhost:3000/checkOutMoMoSuccess"
+}
 export const defaultStore = {
     shopID: 1724802,
     provinceID: 203,

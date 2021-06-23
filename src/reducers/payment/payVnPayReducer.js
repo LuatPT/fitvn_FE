@@ -7,6 +7,12 @@ const payVnPayReducer = (state = "", action) => {
       }else{
         return action.url;
       }
+    case 'PAY_MOMO':
+      if (action.url === "") {
+        return state
+      }else{
+        return action.url;
+      }  
     default:
       return state;
   }
