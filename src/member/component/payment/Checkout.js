@@ -1,11 +1,21 @@
 import '../../../css/payment.css';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
+import {useParams} from "react-router-dom";
 
 function CheckOut (props) {
-    const [amount, setAmount] = useState(props.fee);
+
+    var {fee} = useParams();
+
+    const [amount, setAmount] = useState(0);
     const [bankCode, setBankCode] = useState("NCB");
     const [orderInfo, setOrderInfo] = useState("");
     const [orderType, setOderType] = useState("topup");
+
+    useEffect( () => {
+        if(props.url !== ""){
+            window.location.href = props.url ;
+        }
+    }, [props.url])
     function changeAmount (eve){
         setAmount(parseInt(eve.target.value));
     }
@@ -22,17 +32,14 @@ function CheckOut (props) {
     function checkOutNow(){
         const {paymentWithVnPay} = props;
         var obj = {
-            vnp_Amount: amount,
+            vnp_Amount: parseInt(fee) + parseInt(amount),
             vnp_BankCode: bankCode,
             vnp_Locale: "vn",
             vnp_OrderInfo: orderInfo,
             vnp_OrderType: orderType
             }
         paymentWithVnPay(obj);
-        console.log(props.url);
     }
-
-
     return (
         <div className="container">
             <div className="form-group">
@@ -60,11 +67,10 @@ function CheckOut (props) {
                     <option value="VNBANK">LOCAL BANK</option>
                 </select>
             </div>
-            <img src="https://sandbox.vnpayment.vn/apis/assets/images/bank/ncb_logo.png" width="105px" height="50px" />
+            <img src="https://sandbox.vnpayment.vn/apis/assets/images/bank/ncb_logo.png" width="105px" height="50px" alt="bank"/>
             <button className="btn btn-success" onClick={checkOutNow}>Thanh Toán</button>
         </div>
     )
-    
 }
 
 export default CheckOut

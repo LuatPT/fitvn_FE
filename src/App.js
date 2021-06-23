@@ -65,9 +65,15 @@ class App extends React.Component {
             },
             {
               id: 9,
-              name: "CheckOut",
-              path: "/checkOut",
-              component: 'checkOut'
+              name: "Check Out VnPay",
+              path: "/checkOutVnPay/:fee",
+              component: 'checkOutVnPay'
+            },
+            {
+              id: 10,
+              name: "CheckOutSuccess",
+              path: "/checkOutSuccess",
+              component: 'checkOutSuccess'
             }
         ];
         return (

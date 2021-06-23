@@ -7,6 +7,7 @@ const paymentWithVnPay = (obj) => {
                 method: 'post',
                 url: constants.api+'/paymentVNPay',
                 headers: {
+                    "Access-Control-Allow-Origin": "*"
                 },
                 data: {
                     vnp_Amount: obj.vnp_Amount,
