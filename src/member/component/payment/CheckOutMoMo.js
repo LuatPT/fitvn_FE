@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
+import { v1 as uuidv1 } from 'uuid';
 
 function CheckOutMoMo (props){
   useEffect( () => {
       props.paymentWithMoMo({
         requestType: "captureMoMoWallet",
-        orderId: new Date(),
-        amount: 100000,
+        orderId: uuidv1(),
+        amount: "100000",
         orderInfo: "Nap tien",
-        requestId: new Date(),
-        extraData: "luat@gmail.com"
+        requestId: uuidv1(),
+        extraData: "email=luat@gmail.com"
        })
     }, [])
   return(

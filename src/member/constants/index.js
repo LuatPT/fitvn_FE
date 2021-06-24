@@ -8,8 +8,8 @@ export const tokenGHN = "47dd450d-d244-11eb-8d6a-bebc46395325";
 export const momoInfo = {
     endPoint: "https://test-payment.momo.vn/gw_payment/transactionProcessor",
     partnerCode : "MOMO08DT20210623",
-    accessKey : "klm05TvNBzhg7h7j",
-    secretKey: "fitVnSecretKeyFromMomo",
+    accessKey : "bEGzqKLnc6X72bjR",
+    secretKey: "wFOfAnky6dg9LV0avXCswP9D6ajkvn0J",
     notifyUrl: "http://localhost:8080/api/v1/saveInfoMoMo",
     returnUrl: "http://localhost:3000/checkOutMoMoSuccess"
 }

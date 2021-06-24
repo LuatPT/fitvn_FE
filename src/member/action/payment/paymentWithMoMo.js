@@ -1,10 +1,14 @@
 import axios from "axios";
 import * as constants from "../../constants";
-import CryptoJS from 'crypto-js';
+import * as crypto from 'crypto';
 
 const paymentWithMoMo = (obj) => {
-    const sign = CryptoJS.HmacSHA1(constants.momoInfo.secretKey, "partnerCode="+constants.momoInfo.partnerCode+"&accessKey="+constants.momoInfo.accessKey+"&requestId="+obj.requestId+"&amount="+obj.amount+"&orderId="+obj.orderId+"&orderInfo="+obj.orderInfo+"&returnUrl="+constants.momoInfo.returnUrl+"&notifyUrl="+constants.momoInfo.notifyurl+"&extraData="+obj.extraData, "sha256");
-    console.log(sign);
+    const sign = 
+        crypto.createHmac('sha256', constants.momoInfo.secretKey)
+        .update("partnerCode="+constants.momoInfo.partnerCode+"&accessKey="+constants.momoInfo.accessKey+"&requestId="+obj.requestId
+        +"&amount="+obj.amount+"&orderId="+obj.orderId+"&orderInfo="+obj.orderInfo+"&returnUrl="+constants.momoInfo.returnUrl
+        +"&notifyUrl="+constants.momoInfo.notifyurl+"&extraData="+obj.extraData)
+        .digest('hex');
     return (dis) => {
         axios({
                 method: 'post',
@@ -27,7 +31,20 @@ const paymentWithMoMo = (obj) => {
                 }
             })
             .then(res => {
-                console.log(res);
+                console.log({
+                    accessKey: constants.momoInfo.accessKey,
+                    partnerCode: constants.momoInfo.partnerCode,
+                    requestType: obj.requestType,
+                    notifyUrl: constants.momoInfo.notifyUrl,
+                    returnUrl: constants.momoInfo.returnUrl,
+                    orderId: obj.orderId,
+                    amount: obj.amount,
+                    orderInfo: obj.orderInfo,
+                    requestId: obj.requestId,
+                    extraData: obj.extraData,
+                    signature: sign
+                });
+                console.log(res.data);
                 dis(payMoMo(res.data));
             })
             .catch(err => {
