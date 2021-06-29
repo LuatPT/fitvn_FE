@@ -11,7 +11,7 @@ export const momoInfo = {
     accessKey : "bEGzqKLnc6X72bjR",
     secretKey: "wFOfAnky6dg9LV0avXCswP9D6ajkvn0J",
     notifyUrl: "http://localhost:8080/api/v1/saveInfoMoMo",
-    returnUrl: "http://localhost:3000/checkOutMoMoSuccess"
+    returnUrl: "http://localhost:3000/checkOutSuccess"
 }
 export const defaultStore = {
     shopID: 1724802,
