@@ -1,5 +1,5 @@
 
-const payVnPayReducer = (state = "", action) => {
+const paymentReducer = (state = "", action) => {
   switch (action.type) {
     case 'PAY_VNPAY':
       if (action.url === "") {
@@ -17,4 +17,4 @@ const payVnPayReducer = (state = "", action) => {
       return state;
   }
 };
-export default payVnPayReducer;
+export default paymentReducer;

@@ -4,7 +4,7 @@ import CheckOutMoMo from '../../component/payment/CheckOutMoMo';
 import paymentWithMoMo from "../../action/payment/paymentWithMoMo";
 
 const mapStateToProps = (state) =>({
-    url: state.payVnPayReducer,
+    url: state.paymentReducer,
     fee: state.getFeeReducer
 } )
 const mapDispatchToProps = (dispatch) => ({
