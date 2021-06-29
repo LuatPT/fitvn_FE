@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import { v1 as uuidv1 } from 'uuid';
 
 function CheckOutMoMo (props){
   useEffect( () => {
@@ -12,7 +11,7 @@ function CheckOutMoMo (props){
         const {paymentWithMoMo} = props;
         var obj = {
           requestType: "captureMoMoWallet",
-          amount: "100000",
+          amount: "1000",
           orderInfo: "Nap tien"
         }
         paymentWithMoMo(obj);

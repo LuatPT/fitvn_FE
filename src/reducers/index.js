@@ -14,7 +14,7 @@ import getWardReducer from './payment/getWardReducer';
 import getTransportReducer from './payment/getTransportReducer';
 import getFeeReducer from './payment/getFeeReducer';
 import paymentReducer from './payment/paymentReducer';
-import saveInfoVnPayReducer from './payment/saveInfoVnPayReducer';
+import saveInfoReducer from './payment/saveInfoReducer';
 
 export default combineReducers({
     listFoodReducer,
@@ -32,5 +32,5 @@ export default combineReducers({
     getTransportReducer,
     getFeeReducer,
     paymentReducer,
-    saveInfoVnPayReducer
+    saveInfoReducer
 });

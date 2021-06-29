@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CheckoutVnPay from '../../component/payment/CheckoutVnPay';
+import CheckOutVnPay from '../../component/payment/CheckOutVnPay';
 
 import paymentWithVnPay from "../../action/payment/paymentWithVnPay";
 
@@ -11,4 +11,4 @@ const mapDispatchToProps = (dispatch) => ({
     paymentWithVnPay: (obj) => dispatch(paymentWithVnPay(obj)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckoutVnPay);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOutVnPay);

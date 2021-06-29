@@ -11,7 +11,8 @@ import ErrorPage from './ErrorPage';
 import PaymentContainer from '../member/container/payment/PaymentContainer';
 import CheckOutVnPayContainer from '../member/container/payment/CheckOutVnPayContainer';
 import CheckOutMoMoContainer from '../member/container/payment/CheckOutMoMoContainer';
-import CheckOutSuccessContainer from '../member/container/payment/CheckOutSuccessContainer';
+import CheckOutSuccessVnPayContainer from '../member/container/payment/CheckOutSuccessVnPayContainer';
+import CheckOutSuccessMoMoContainer from '../member/container/payment/CheckOutSuccessMoMoContainer';
 
 class Body extends React.PureComponent{
 
@@ -52,9 +53,12 @@ class Body extends React.PureComponent{
             case 'checkOutMoMo':
                 component = <CheckOutMoMoContainer />
                 break;    
-            case 'checkOutSuccess':
-                component = <CheckOutSuccessContainer />
+            case 'checkOutSuccessVnPay':
+                component = <CheckOutSuccessVnPayContainer />
                 break;
+            case 'checkOutSuccessMoMo':
+                component = <CheckOutSuccessMoMoContainer />
+                break;    
             default:
                 component = <ErrorPage />;
                  break;

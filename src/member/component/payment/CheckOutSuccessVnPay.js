@@ -1,14 +1,14 @@
 import {useEffect} from 'react';
 
-function CheckOutSuccess (props){
+function CheckOutSuccessVnPay (props){
     useEffect(() => {
         console.log(props.message);
         if (props.message === "") {
-            props.saveInfoPaymentAction()
+            props.saveInfoPaymentVnPayAction()
         }
     }, [props.message])
     return (
         <div>Result: {props.message}</div>
     )
 }
-export default CheckOutSuccess
+export default CheckOutSuccessVnPay

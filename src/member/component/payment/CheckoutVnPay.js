@@ -2,7 +2,7 @@ import '../../../css/payment.css';
 import React, {useState,useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
-function CheckoutVnPay (props) {
+function CheckOutVnPay (props) {
 
     var {fee} = useParams();
 
@@ -73,4 +73,4 @@ function CheckoutVnPay (props) {
     )
 }
 
-export default CheckoutVnPay
+export default CheckOutVnPay
