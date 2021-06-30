@@ -15,6 +15,7 @@ import getTransportReducer from './payment/getTransportReducer';
 import getFeeReducer from './payment/getFeeReducer';
 import paymentReducer from './payment/paymentReducer';
 import saveInfoReducer from './payment/saveInfoReducer';
+import getRefunMoMoReducer from './payment/getRefunMoMoReducer';
 
 export default combineReducers({
     listFoodReducer,
@@ -32,5 +33,6 @@ export default combineReducers({
     getTransportReducer,
     getFeeReducer,
     paymentReducer,
-    saveInfoReducer
+    saveInfoReducer,
+    getRefunMoMoReducer
 });

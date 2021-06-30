@@ -19,13 +19,13 @@ function CheckOutVnPay (props) {
     function changeAmount (eve){
         setAmount(parseInt(eve.target.value));
     }
-     function changeBankCode (eve){
+    function changeBankCode (eve){
         setBankCode(eve.target.value);
     }
-     function changeOrderInfo (eve){
+    function changeOrderInfo (eve){
         setOrderInfo(eve.target.value);
     }
-     function changeOrderType (eve){
+    function changeOrderType (eve){
         setOderType(eve.target.value);
     }
 

@@ -2,14 +2,23 @@ import {useEffect} from 'react';
 
 function CheckOutSuccessMoMo (props){
     useEffect(() => {
-        console.log(props.message);
-        if (props.message === "") {
-            props.saveInfoPaymentMoMoAction()
+        if (props.transID === "") {
+            props.saveInfoPaymentMoMoAction();
         }
-    }, [props.message])
-    console.log(props.message);
+    }, [props.transID])
+    function callRefund(){
+        props.getRefundMoMoAction({
+            transId: props.transId,
+            amount: "1000",
+            requestType: "refundMoMoWallet"
+        });
+    }
     return (
-        <div>Result: {props.message}</div>
+        <div>
+            Result: {props.transID} success
+            <button onClick={callRefund}>Click to get refund</button>
+            {/* {props.objectRefund} */}
+        </div>
     )
 }
 export default CheckOutSuccessMoMo

@@ -8,11 +8,11 @@ const saveInfoReducer = (state = "", action) => {
         return action.status;
       }
     case 'SAVE_INFO_PAYMENT_MOMO':
-      if (action.status === "") {
+      if (action.transId === "") {
         return state
       }else{
-        return action.status;
-      }  
+        return action.transId;
+      }
     default:
       return state;
   }

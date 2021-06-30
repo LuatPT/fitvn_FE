@@ -2,7 +2,6 @@ import {useEffect} from 'react';
 
 function CheckOutSuccessVnPay (props){
     useEffect(() => {
-        console.log(props.message);
         if (props.message === "") {
             props.saveInfoPaymentVnPayAction()
         }

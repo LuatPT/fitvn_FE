@@ -23,7 +23,6 @@ class UpdateMealForm extends React.Component {
     onInput = e => this.setState({ [e.target.id]: e.target.value });
     update=()=> {
         const {updateMealAction} = this.props;
-        console.log(this.mealPlanDate.current.value);
         var obj = {
             mealPlanId: this.mealPlanId.current.value,
             userName: this.userName.current.value,
