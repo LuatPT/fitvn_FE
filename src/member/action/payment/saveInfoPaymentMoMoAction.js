@@ -11,6 +11,7 @@ const saveInfoPaymentMoMoAction = () => {
                 }
             })
             .then(res => {
+                console.log(res);
                 dis(saveInfoPaymentMoMo(res.data));
             })
             .catch(err => {
