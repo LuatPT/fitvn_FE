@@ -15,12 +15,11 @@ export const getExerciseListAction = () => {
                 method: 'get',
                 url: constants.api+'/exercises',
                 headers: {
-                        'Authorization': localStorage.getItem('token')
-                
+                    'Authorization': localStorage.getItem('token')
                 }
             })
             .then(res => {
-                dis(getExerciseList(res.data.data));
+                dis(getExerciseList(res.data));
             })
             .catch(err => {
                 console.log(err);

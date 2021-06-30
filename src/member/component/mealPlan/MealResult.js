@@ -34,6 +34,15 @@ class MealList extends React.Component{
   }
   render() {
     const {listMeal,listCaloMap} = this.props;
+    if (listMeal.length <= 0) {
+      return (
+        <div className="divRsMealList">
+          <h3>{this.props.message}</h3>
+          <input type="date" defaultValue={new Date().toISOString().slice(0, 10)} onBlur={this.changeDate}/>
+          Dont have record
+        </div>
+        )
+    }
     let dataForMap = [["Calo", "Actually", "Expect"],['Start', 0, 1500]];
     const options = {
     backgroundColor: {

@@ -6,7 +6,8 @@ const getUserInfoAction = (obj) => {
         axios({
                 method: 'post',
                 url: constants.api+'/getUserInfos',
-                data: obj
+                data: obj,
+                 headers: constants.commonHeader
                 // headers: {
                 //     // 'access-token': localStorage.getItem('token'),
                 //     'Content-Type': 'application/json',
@@ -15,7 +16,7 @@ const getUserInfoAction = (obj) => {
                 // }
             })
             .then(res => {
-                dispatch(getUserInfo(res.data.data));
+                dispatch(getUserInfo(res.data));
             })
             .catch(err => {
                 console.log(err);

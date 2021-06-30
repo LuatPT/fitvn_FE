@@ -43,7 +43,7 @@ function CheckOutMoMo (props){
                 </select>
             </div>
             <div className="form-group">
-                <label htmlFor="Amount">Số tiền </label>
+                <label htmlFor="Amount">Số tiền</label>
                 <input className="form-control" data-val="true" place-holder="The field Amount must be a number." 
                 data-val-required="The Amount field is required." id="Amount" name="Amount" type="number" onChange={changeAmount}/>
             </div>

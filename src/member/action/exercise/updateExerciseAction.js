@@ -4,7 +4,7 @@ export const updateFoodAction = (obj) => {
   return (dispatch, getState) => {
     axios
       .put(constants.api + '/exercises/' + obj.foodId, obj, {
-        headers: { 'access-token': localStorage.getItem('token') },
+        headers: constants.commonHeader,
       })
       .then((res) => {
         const { getListFood } = getState();

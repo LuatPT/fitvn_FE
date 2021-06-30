@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../../css/mealList.css";
+import * as constants from "../../constants";
 
 let init = [
   {
@@ -19,11 +20,13 @@ class MealList extends React.Component{
     food: ""
   }
   // fetch data
-  async componentDidMount (){
-    await fetch("http://localhost:8080/api/v1/foods")
+  componentDidMount() {
+    fetch(constants.api+"/foods", {method: 'GET', headers: constants.commonHeader})
       .then(response => response.json())
       .then(result =>
-          this.setState({data: result.data})
+          this.setState({data: result
+          
+          })
         )
   }
 
@@ -53,7 +56,6 @@ class MealList extends React.Component{
 
   render() {
     let { data, search, food } = this.state;
-
     if (!data) {
       return <p>Loading</p>
     }

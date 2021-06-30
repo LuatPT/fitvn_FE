@@ -9,12 +9,11 @@ const getFoodListAction = () => {
                 headers: {
                     // 'access-token': localStorage.getItem('token'),
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*', 
                     Accept: 'application/json'
                 }
             })
             .then(res => {
-                dis(getFoodList(res.data.data));
+                dis(getFoodList(res.data));
             })
             .catch(err => {
                 console.log(err);

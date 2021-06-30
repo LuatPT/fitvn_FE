@@ -6,16 +6,11 @@ const getMealListAction = (obj) => {
         axios({
                 method: 'post',
                 url: constants.api+'/getMealPlans',
-                data: obj
-                // headers: {
-                //     // 'access-token': localStorage.getItem('token'),
-                //     'Content-Type': 'application/json',
-                //     'Access-Control-Allow-Origin': '*',
-                //     Accept: 'application/json'
-                // }
+                data: obj,
+                headers: constants.commonHeader
             })
             .then(res => {
-                dispatch(getMealList(res.data.data));
+                dispatch(getMealList(res.data));
             })
             .catch(err => {
                 console.log(err);

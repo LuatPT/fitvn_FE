@@ -6,9 +6,7 @@ const addUserInfoAction = (obj) => {
         axios({
             method: "post",
             url: constants.api + "/userInfos",
-            headers: {
-                "Access-Control-Allow-Origin": "*"
-            },
+            headers: constants.commonHeader,
             data: obj
         })
         .then( res=>{

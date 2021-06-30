@@ -11,3 +11,7 @@ export const defaultStore = {
     wardCode: 40208
 };
 export const host = 'http://localhost:3000';
+export const commonHeader = 
+    {
+        "Access-Control-Allow-Origin": "*"
+    }
