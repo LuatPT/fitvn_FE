@@ -45,7 +45,7 @@ function Header (){
         ];
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand navbar-light bg-light">
                      <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className={currentPath === "/" ? "nav-item active": "nav-item"}>
