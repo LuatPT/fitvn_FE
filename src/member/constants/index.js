@@ -1,6 +1,6 @@
 // export const api = 'http://localhost:3002/api/v1';
 // export const api = 'http://localhost:8080/api/v1';
-export const api = 'https://fitvnapi.herokuapp.com/v1/';
+export const api = 'https://fitvnapi.herokuapp.com/v1';
 export const apiGHN = 'https://online-gateway.ghn.vn/shiip/public-api/master-data';
 export const apiTransport = 'https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/available-services';
 export const apiFee = 'https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee'
