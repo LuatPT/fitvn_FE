@@ -14,5 +14,7 @@ export const defaultStore = {
 export const host = 'http://localhost:3000';
 export const commonHeader = 
     {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "*"
     }

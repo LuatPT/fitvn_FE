@@ -129,8 +129,8 @@ class MealList extends React.Component{
         </table>
         <div className="displayChart">
           <Chart
-            width={'800px'}
-            height={'600px'}
+            width={'600px'}
+            height={'500px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={[
@@ -146,8 +146,8 @@ class MealList extends React.Component{
           />
            <Chart
             chartType="Line"
-            width="800px"
-            height="600px"
+            width="600px"
+            height="500px"
             data={dataForMap}
             options={options}
           />

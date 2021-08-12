@@ -98,8 +98,8 @@ function LoginForm (props){
                     <h3>New here ?</h3>
                     <img src={leftImg} className="imageLogin" alt="Background" />
                     <p>
-                        Join with me and get a fitness body and increase your health.
-                        Please click Sign up NOW!
+                        To get a fitness body 
+                        and increase your health, Sign up NOW!
                     </p>
                     <button className="btnLogIn transparent" id="sign-up-btn" onClick={signUp}>
                     Sign up
@@ -111,7 +111,7 @@ function LoginForm (props){
                     <h3>One of us ?</h3>
                     <img src={rightImg} className="imageLogin" alt="Background" />
                     <p>
-                        Welcome you comback
+                        Welcome you comeback
                         Please login to use full of service 
                     </p>
                     <button className="btnLogIn transparent" id="sign-in-btn" onClick={signIn}>
