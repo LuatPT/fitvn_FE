@@ -4,6 +4,14 @@ import MealRsItemContainer from "../../container/mealPlan/MealRsItemContainer";
 import {Chart} from 'react-google-charts';
 
 class MealList extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.state = ({
+      isDisplay: true
+    })
+  }
+
   // fetch data
   componentDidMount() {
     const {getMealListAction, getCaloMapAction} = this.props;
@@ -16,6 +24,7 @@ class MealList extends React.Component{
       getCaloMapAction({userName:sessionStorage.getItem("user")});
       getMealListAction(obj);
     }else{
+      this.setState({isDisplay: false})
       alert("Please login !")
     }
   }
@@ -29,6 +38,7 @@ class MealList extends React.Component{
       }
       getMealListAction(obj);
     }else{
+      this.setState({isDisplay: false})
       alert("Please login !")
     }
   }
@@ -61,7 +71,7 @@ class MealList extends React.Component{
     var sumCarb = listMeal.reduce((sum, obj) => { return sum + obj.carb }, 0);
     var sumFat = listMeal.reduce((sum, obj) => { return sum + obj.fat }, 0)
     return (
-      <div className="divRsMealList">
+      <div className="divRsMealList" style={{display: this.state.isDisplay ? "block": "none"}}>
         <h3>{this.props.message}</h3>
         <input type="date" defaultValue={new Date().toISOString().slice(0, 10)} onBlur={this.changeDate}/>
         <table className="divRsMealListTable table table-bordered">
@@ -128,29 +138,15 @@ class MealList extends React.Component{
           </tfoot>
         </table>
         <div className="displayChart">
-          <Chart
-            width={'600px'}
-            height={'500px'}
-            chartType="PieChart"
-            loader={<div>Loading Chart</div>}
+          <Chart width={'600px'} height={'500px'} chartType="PieChart" loader={<div>Loading Chart</div>}
             data={[
               ['Macro', 'Calo per Day'],
               ['Protein', sumProtein],
               ['Carb', sumCarb],
               ['Fat', sumFat],
             ]}
-            options={{
-              title: 'My Daily Macro',
-            }}
-            rootProps={{ 'data-testid': '1' }}
-          />
-           <Chart
-            chartType="Line"
-            width="600px"
-            height="500px"
-            data={dataForMap}
-            options={options}
-          />
+            options={{ title: 'My Daily Macro', }} rootProps={{ 'data-testid': '1' }} />
+           <Chart chartType="Line" width="600px"  height="500px" data={dataForMap} options={options} />
         </div>
       </div>
     )

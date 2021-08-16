@@ -1,6 +1,9 @@
 import '../../../css/payment.css';
 import React from 'react';
 
+import Button from '@material-ui/core/Button';
+import SendIcon from '@material-ui/icons/Send';
+
 class Payment extends React.Component{
 
     constructor(props){
@@ -83,7 +86,7 @@ class Payment extends React.Component{
                         ))
                     }
                 </select>
-            </div>
+            </div> 
             <div>
                 <span>District: </span>
                 <select className="form-control" aria-label="Default select example" onChange={this.chooseDistrict}>
@@ -134,7 +137,8 @@ class Payment extends React.Component{
                 <p>{feeTotal}</p>
                 <p>{this.state.paymentBy !== "" ? "Payment by:"+ this.state.paymentBy : ""}</p>
             </div>
-            <button className="btn btn-outline-success"> <a className="aCheckOut" href={urlCheckOut}>CheckOut</a></button>
+            {/* <button className="btn btn-outline-success"> <a className="aCheckOut" href={urlCheckOut}>CheckOut</a></button> */}
+            <Button variant="outlined" endIcon={<SendIcon />}><a className="aCheckOut" href={urlCheckOut}>CheckOut</a> </Button>
       </div>
     )
     }
