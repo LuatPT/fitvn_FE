@@ -1,6 +1,7 @@
 const logoutAction = () => {
     return (dispatch) =>{
         localStorage.removeItem("token");
+        sessionStorage.removeItem("user");
         localStorage.setItem("isLogin", false);
         dispatch(logout("Logout sucess!!!"));
     }

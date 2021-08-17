@@ -138,7 +138,7 @@ class Payment extends React.Component{
                 <p>{this.state.paymentBy !== "" ? "Payment by:"+ this.state.paymentBy : ""}</p>
             </div>
             {/* <button className="btn btn-outline-success"> <a className="aCheckOut" href={urlCheckOut}>CheckOut</a></button> */}
-            <Button variant="outlined" endIcon={<SendIcon />}><a className="aCheckOut" href={urlCheckOut}>CheckOut</a> </Button>
+            <Button variant="outlined" endIcon={<SendIcon />} href={urlCheckOut}>CheckOut</Button>
       </div>
     )
     }
