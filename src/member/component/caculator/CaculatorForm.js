@@ -2,6 +2,17 @@ import React from 'react'
 import Result from './Result'
 import "../../../css/caculatorForm.css";
 
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+
 class CaculatorForm extends React.Component {
 
     constructor(props){
@@ -76,6 +87,7 @@ class CaculatorForm extends React.Component {
             bodyFat:  this.bodyFat.current.value,
             target: this.target.current.value
         };
+        console.log(obj);
         addUserInfoAction(obj);
         //Show result panel
         document.getElementById("showResult").style.display = "inline";
@@ -88,52 +100,48 @@ class CaculatorForm extends React.Component {
                     <h2>Nhập thông tin của bạn:</h2><br/>
                     <fieldset>
                         <legend><span className="number">1</span> Thông tin cơ bản</legend>
-                        <label htmlFor="name" className="labelForm">Tên:</label>
-                        <input type="text" id="name" name="name" className="textForm" placeholder="Nhập tên của bạn..." ref={this.name}/>
+                        <Box sx={{'& .MuiTextField-root': { m: 1, width: '100%' }, }} noValidate autoComplete="off">
+                            <TextField required id="outlined-basic" label="Nhập Tên" inputRef={this.name} variant="filled"/>
+                            <TextField required id="filled-number" label="Nhập Tuổi" type="number" inputRef={this.age} variant="filled"/>
 
-                        <label htmlFor="age" className="labelForm">Tuổi:</label>
-                        <input type="number" id="age" name="age" className="textForm" placeholder="Nhập số tuổi của bạn..." ref={this.age}/>
+                            <FormControl component="fieldset">
+                                <FormLabel component="legend">Giới tính</FormLabel>
+                                <RadioGroup defaultValue="male" row aria-label="gender" name="row-radio-buttons-group">
+                                    <FormControlLabel value="male" control={<Radio />} label="Nam" inputRef={this.gender} />
+                                    <FormControlLabel value="female" control={<Radio />} label="Nữ" inputRef={this.gender} />
+                                </RadioGroup>
+                            </FormControl>
 
-                        <label className="labelForm">Giới tính:</label>
-                        <input type="radio" id="male" value="male" name="gender" className="radioForm" ref={this.gender}/>
-                        <label htmlFor="male" className="light labelForm">Nam</label><br/>
-                        <input type="radio" id="female" value="female" name="gender" className="radioForm" ref={this.gender}/>
-                        <label htmlFor="female" className="light labelForm">Nữ</label>
-
-                        <label htmlFor="height" className="labelForm">Chiều cao(cm):</label>
-                        <input type="number" id="height" name="height" className="textForm" placeholder="Nhập chiều cao của bạn..." ref={this.height}/>
-
-                        <label htmlFor="weight" className="labelForm">Cân nặng(kg):</label>
-                        <input type="number" id="weight" name="weight" className="textForm" placeholder="Nhập cân nặng của bạn..." ref={this.weight}/>
-
+                            <TextField required id="filled-number" label="Nhập Chiều Cao(cm)" type="number" inputRef={this.height} variant="filled"/>
+                            <TextField required id="filled-number" label="Nhập Cân nặng(kg)" type="number" inputRef={this.weight} variant="filled"/>
+                        </Box>
                     </fieldset>
 
                     <fieldset>
-                        <label htmlFor="weight" className="labelForm">Body Fat(%):</label>
-                        <input type="number" id="bodyFat" name="bodyFat" className="textForm" placeholder="Nhập chỉ số BDF..."ref={this.bodyFat} />
-                        <legend><span className="number">2</span> Thông tin tập luyện</legend>
-                        <label className="labelForm" htmlFor="volumeTrainer">Chế độ tập luyện</label>
-                        <select id="volumeTrainer" name="volumeTrainer" className="selectForm" ref={this.volumeTrainer}>
-                            <optgroup label="Newbie">
-                                <option value="1.2">Ít vận động</option>
-                                <option value="1.375">1-3 buổi/tuần</option>
-                            </optgroup>
-                            <optgroup label="Normal">
-                                <option value="1.55">3-5 buổi/tuần</option>
-                                <option value="1.725">6-7 buổi/tuần</option>
-                            </optgroup>
-                            <optgroup label="Pro">
-                                <option value="1.9">2 buổi/ngày</option>
-                            </optgroup>
-                        </select>
+                        <Box sx={{'& .MuiTextField-root': { m: 1, width: '100%' }, }} noValidate autoComplete="off">
+                        <TextField required id="filled-number" label="Nhập Body Fat(%)" type="number" inputRef={this.bodyFat}variant="filled" /> 
 
-                        <label className="labelForm">Mục đích</label>
-                        <input type="checkbox" id="decreaseWeight" value="decrease" name="target" className="checkForm" ref={this.target}/>
-                        <label className="light labelForm" htmlFor="decreaseWeight">Giảm cân</label><br/>
-                        <input type="checkbox" id="keepWeight" value="keep" name="target" className="checkForm" ref={this.target}/>
-                        <label className="light labelForm" htmlFor="keepWeight">Duy trì</label><br/>
-                        <input type="checkbox" id="increaseWeight" value="increase" name="target" className="checkForm" ref={this.target}/>
-                        <label className="light labelForm" htmlFor="increaseWeight">Tăng cân</label>
+                        <legend><span className="number">2</span> Thông tin tập luyện</legend>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Chế độ tập luyện</InputLabel>
+                            <Select variant="filled" inputRef={this.volumeTrainer} labelId="demo-simple-select-label" id="demo-simple-select" label="Chế độ tập luyện" >
+                            <MenuItem value={1.2}>Ít vận động</MenuItem>
+                            <MenuItem value={1.375}>1-3 buổi/tuần</MenuItem>
+                            <MenuItem value={1.55}>3-5 buổi/tuần</MenuItem>
+                            <MenuItem value={1.725}>6-7 buổi/tuần</MenuItem>
+                            <MenuItem value={1.9}>2 buổi/ngày</MenuItem>
+                            </Select>
+                        </FormControl>
+
+                        <FormControl component="fieldset" >
+                            <FormLabel component="legend">Mục đích</FormLabel>
+                            <RadioGroup defaultValue="decrease" row aria-label="volumeTrainer" name="row-radio-buttons-group">
+                                <FormControlLabel value="decrease" control={<Radio />} label="Giảm cân" inputRef={this.target} />
+                                <FormControlLabel value="keepWeight" control={<Radio />} label="Duy trì" inputRef={this.target} />
+                                <FormControlLabel value="increaseWeight" control={<Radio />} label="Tăng cân" inputRef={this.target} />
+                            </RadioGroup>
+                        </FormControl>
+                        </Box>
                     </fieldset>
                     <button type="submit" className="btnForm" onClick={this.caculatorBMRTDEE}>Tính Toán</button>
                 </form>
