@@ -3,6 +3,14 @@ import {useState} from "react";
 import "../../../css/loginStyle.css";
 import leftImg from "../../../image/left1.png";
 import rightImg from "../../../image/right.png";
+import Stack from '@material-ui/core/Stack';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/core/Alert';
+
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function LoginForm (props){
     const[userName, setUserName] = useState('');
@@ -28,6 +36,7 @@ function LoginForm (props){
         }
         //Login
         loginAction(obj);
+        setOpen(true);
     }
      function registerForm(eve){
         eve.preventDefault();
@@ -39,6 +48,7 @@ function LoginForm (props){
         }
         //Register
         registerAction(obj);
+        setOpen(true);
     }
     // To switch two state  to display sign in or sign up
     function signUp(){
@@ -51,15 +61,33 @@ function LoginForm (props){
         const container = document.querySelector(".containerDiv");
         container.classList.add("sign-in-mode");
         container.classList.remove("sign-up-mode");
-         setIsDisableSignIn(false);
+        setIsDisableSignIn(false);
     }
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpen(false);
+    };
+
     return(
         <div className="containerDiv">
+            <Stack spacing={2} sx={{ width: '100%' }}>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}
+                anchorOrigin={{ vertical: "top",horizontal: "right"}}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                {props.messageLogin}
+                </Alert>
+            </Snackbar>
+            </Stack>
             <div className="forms-container">
                 <div className="signin-signup">
                     <form className="sign-in-form loginform" >
                         <h2 className="title">Sign in</h2>
-                        <h3 className="login-title">{props.messageLogin}</h3>
                         <div className="input-field">
                             <i className="fa fa-user"></i>
                             <input type="text" placeholder="Username" onChange={changeUserName} />

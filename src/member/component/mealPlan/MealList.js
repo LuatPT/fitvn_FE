@@ -2,6 +2,10 @@ import React from 'react'
 import "../../../css/mealList.css";
 import * as constants from "../../constants";
 
+import Stack from '@material-ui/core/Stack';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/core/Alert';
+
 let init = [
   {
     foodId: "1",
@@ -13,11 +17,16 @@ let init = [
     foodContent: "Good to build muscle, up size and not good for decrease weight"
   }
 ];
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 class MealList extends React.Component{
   state = {
     data: init,
     search: "",
-    food: ""
+    food: "",
+    open: false
   }
   // fetch data
   componentDidMount() {
@@ -40,6 +49,7 @@ class MealList extends React.Component{
       mealPlanDate: new Date().toISOString().slice(0, 10)
     }
     addMealAction(obj);
+    this.setState({open: true});
   }
 
   // Search input
@@ -54,6 +64,12 @@ class MealList extends React.Component{
     food: item
   });
 
+  handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+        this.setState({open: false});
+    };
   render() {
     let { data, search, food } = this.state;
     if (!data) {
@@ -62,7 +78,14 @@ class MealList extends React.Component{
     let filtered = data.filter(item => item.foodName.toLowerCase().includes(search.toLowerCase()));
     return (
       <div className="container divExerciseList">
-        <h3 className="msgText">{this.props.message}</h3>
+        <Stack spacing={2} sx={{ width: '100%' }}>
+            <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}
+                anchorOrigin={{ vertical: "top",horizontal: "right"}}>
+                <Alert onClose={this.handleClose} severity="success" sx={{ width: '100%' }}>
+                {this.props.message}
+                </Alert>
+            </Snackbar>
+            </Stack>
         <div className="wrapper">
           <div className="search">
             <input id="search" value={this.state.search} placeholder="Search a food by name..." onChange={this.onInput} onFocus={this.onFocus} onBlur={this.onBlur} autoComplete="off"/>
