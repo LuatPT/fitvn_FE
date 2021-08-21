@@ -4,7 +4,7 @@ import loginAction from "../../action/login/loginAction";
 import registerAction from "../../action/login/registerAction";
 
 const mapStateToProps = (state) =>({
-    messageLogin: state.loginReducer,
+    messageLogin: state.loginReducer.msg,
     messageRegister: state.registerReducer
 } )
 const mapDispatchToProps = (dispatch) => ({

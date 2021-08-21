@@ -15,16 +15,17 @@ const loginAction = (obj) => {
             // save username to session
             sessionStorage.setItem("user", obj.username);
             localStorage.setItem("isLogin", true);
-            dispatch(login("Login sucess!!!"));
+            dispatch(login(true, "Login sucess!!!"));
         })
         .catch(
-            dispatch(login("Login failed!!!"))
+            dispatch(login(false,"Login failed!!!"))
         )
     }
 }
-const login = (msg) =>{
+const login = (isLogIn ,msg) =>{
     let result = {
         type: "LOGIN",
+        isLogIn: isLogIn,
         msg
     }
     return result

@@ -60,7 +60,6 @@ function Header (){
         ];
 
         const [anchorEl, setAnchorEl] = React.useState(null);
-
         const handleMenu = (event) => {
             setAnchorEl(event.currentTarget);
         };
@@ -79,7 +78,7 @@ function Header (){
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Photos
                         </Typography>
-                        <div style={{display:  localStorage.getItem('isLogin') ? 'block': 'none'}}>
+                        <div style={{display: !Boolean(localStorage.getItem('isLogIn'))? 'block': 'none'}}>
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                 <Badge badgeContent={4} color="error">
@@ -99,7 +98,6 @@ function Header (){
                                     aria-haspopup="true" onClick={handleMenu} color="inherit" >
                                     <AccountCircle />
                                 </IconButton>
-                                <p>{localStorage.getItem('isLogin')}</p>
                                 <Menu id="menu-appbar" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}
                                     anchorOrigin={{
                                     vertical: 'top',
