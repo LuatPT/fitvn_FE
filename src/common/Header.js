@@ -69,14 +69,40 @@ function Header (){
         };
         return (
             <div>
-                <Box sx={{ flexGrow: 1,  height: 100 }}>
+                <Box sx={{ flexGrow: 1,  height: 128 }}>
                     <AppBar position="static">
                         <Toolbar>
                         <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Photos
+                           <nav className="navbar navbar-expand">
+                                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                                    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                                        <li className={currentPath === "/" ? "nav-item active": "nav-item"}>
+                                                <a className="nav-link"  href="/">
+                                                    <img src={imgLogo} alt="Logo" style={{width: "32px"}}/>
+                                                </a>
+                                        </li>
+                                            {
+                                                menus.map((ele,key) =>
+                                                <li key={key} className={currentPath === ele.path ? "nav-item active": "nav-item"} >
+                                                        <a className="nav-link" href={ele.path}>
+                                                        <span className="navText"> {ele.name}</span>
+                                                        </a>
+                                                </li>
+                                                )
+                                            }
+                                    </ul>
+                                    <ul className="navbar-nav">
+                                        <li className={currentPath === "/login" ? "nav-item active": "nav-item"}  id="logInSpan">
+                                            <a className="nav-link"  href="/login">
+                                                <span className="navText"> Login</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
                         </Typography>
                         <div style={{display: !Boolean(localStorage.getItem('isLogIn'))? 'block': 'none'}}>
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -99,55 +125,19 @@ function Header (){
                                     <AccountCircle />
                                 </IconButton>
                                 <Menu id="menu-appbar" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}
-                                    anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                    }}
-                                    transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                    }}>
+                                    anchorOrigin={{ vertical: 'top', horizontal: 'right'}}
+                                    transformOrigin={{vertical: 'top',horizontal: 'right'}}>
                                     <MenuItem onClick={handleClose}>Profile</MenuItem>
                                     <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                    <MenuItem onClick={handleClose}>
+                                        <LogoutContainer />
+                                    </MenuItem>
                                 </Menu>
                             </Box>
                         </div>
                         </Toolbar>
                     </AppBar>
                     </Box>
-                <nav className="navbar navbar-expand navbar-light bg-light">
-                     <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li className={currentPath === "/" ? "nav-item active": "nav-item"}>
-                                    <a className="nav-link"  href="/">
-                                        <img src={imgLogo} alt="Logo" style={{width: "32px"}}/>
-                                    </a>
-                            </li>
-                                {
-                                    menus.map((ele,key) =>
-                                    <li key={key} className={currentPath === ele.path ? "nav-item active": "nav-item"} >
-                                            <a className="nav-link" href={ele.path}>
-                                               <span className="navText"> {ele.name}</span>
-                                            </a>
-                                    </li>
-                                    )
-                                }
-                        </ul>
-                        <ul className="navbar-nav">
-                             <li className={currentPath === "/login" ? "nav-item active": "nav-item"}  id="logInSpan">
-                                <a className="nav-link"  href="/login">
-                                    <span className="navText"> Login</span>
-                                </a>
-                            </li>
-                             <li className={currentPath === "/logout" ? "nav-item active": "nav-item"} id="logOutSpan">
-                                <a className="nav-link"  href="/logout">
-                                  <LogoutContainer />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
             </div>
         )
 }

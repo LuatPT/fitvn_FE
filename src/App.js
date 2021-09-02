@@ -93,6 +93,11 @@ class App extends React.Component {
           <div className="App">
             <Header />
                 <Switch>
+                   <Route exact path="/">
+                      {
+                        WrapperComponent(Body, 'food')
+                      }
+                  </Route>
                   {
                     menus.map((ele,key) =>
                       {

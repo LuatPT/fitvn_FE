@@ -15,7 +15,6 @@ import CheckOutSuccessVnPayContainer from '../member/container/payment/CheckOutS
 import CheckOutSuccessMoMoContainer from '../member/container/payment/CheckOutSuccessMoMoContainer';
 
 class Body extends React.PureComponent{
-
     render(){
         const {typeComponent} = this.props;
         let component;

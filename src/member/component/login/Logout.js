@@ -4,10 +4,9 @@ function Logout (props){
     function doLogout(){
         const {logoutAction} = props ;
         logoutAction();
-       
     }
     return(
-        <span className="navText" onClick={doLogout}>
+        <span onClick={doLogout}>
             Logout
         </span>
         )

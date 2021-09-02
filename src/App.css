@@ -61,3 +61,8 @@ body{
 .divRsMealListTable td{
   vertical-align: middle;
 }
+.divMealList{
+  min-height: 500px;
+  background-color: aquamarine;
+  /* background: url("https://thumbs.dreamstime.com/z/healthy-food-background-studio-photo-different-fruits-vegetables-old-wooden-table-84233958.jpg"); */
+}

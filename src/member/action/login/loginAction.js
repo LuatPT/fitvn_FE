@@ -16,6 +16,7 @@ const loginAction = (obj) => {
             sessionStorage.setItem("user", obj.username);
             localStorage.setItem("isLogin", true);
             dispatch(login(true, "Login sucess!!!"));
+            window.setTimeout(function(){window.location.href = "/findMeal"},3000);
         })
         .catch(
             dispatch(login(false,"Login failed!!!"))

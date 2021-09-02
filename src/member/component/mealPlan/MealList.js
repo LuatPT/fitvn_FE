@@ -77,6 +77,7 @@ class MealList extends React.Component{
     }
     let filtered = data.filter(item => item.foodName.toLowerCase().includes(search.toLowerCase()));
     return (
+      <div className="divMealList">
       <div className="container divExerciseList">
         <Stack spacing={2} sx={{ width: '100%' }}>
             <Snackbar open={this.state.open} autoHideDuration={6000} onClose={this.handleClose}
@@ -134,6 +135,7 @@ class MealList extends React.Component{
             </div>
           )
         }
+      </div>
       </div>
     )
   }
