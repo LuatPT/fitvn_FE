@@ -1,4 +1,5 @@
 import React from 'react'
+import {useEffect} from 'react'
 import { useLocation } from "react-router-dom";
 import imgLogo from "../image/logogym.png";
 import LogoutContainer from "../member/container/login/LogoutContainer";
@@ -10,8 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MailIcon from '@material-ui/icons/Mail';
@@ -96,7 +97,7 @@ function Header (){
                                     </ul>
                                     <ul className="navbar-nav">
                                         <li className={currentPath === "/login" ? "nav-item active": "nav-item"}  id="logInSpan">
-                                            <a className="nav-link"  href="/login">
+                                            <a className="nav-link"  href="/login " style={{display: localStorage.getItem("isLogin")== 'true' ? 'none': 'block'}}>
                                                 <span className="navText"> Login</span>
                                             </a>
                                         </li>
@@ -104,7 +105,7 @@ function Header (){
                                 </div>
                             </nav>
                         </Typography>
-                        <div style={{display: !Boolean(localStorage.getItem('isLogIn'))? 'block': 'none'}}>
+                        <div style={{display: localStorage.getItem("isLogin") =='true' ? 'block': 'none'}}>
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                 <Badge badgeContent={4} color="error">

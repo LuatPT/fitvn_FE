@@ -1,5 +1,5 @@
 import React from 'react'
-import GoogleMapComponent from './GoogleMapComponent'
+// import GoogleMapComponent from './GoogleMapComponent'
 
 class Footer extends React.PureComponent{
 
